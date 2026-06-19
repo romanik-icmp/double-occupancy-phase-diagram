@@ -1,0 +1,646 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{physics}
+
+\usepackage{subcaption}
+
+\textheight=23cm
+\textwidth=17cm
+\hoffset=-2cm
+
+%\usepackage{url}
+%\usepackage{hyperref}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+	
+	\title[Phase diagram of a double-occupancy cell model]{Phase diagram of a double-occupancy cell model of a fluid with Curie-Weiss interaction}
+	
+	%%=============================================================%%
+	%% GivenName	-> \fnm{Joergen W.}
+	%% Particle	-> \spfx{van der} -> surname prefix
+	%% FamilyName	-> \sur{Ploeg}
+	%% Suffix	-> \sfx{IV}
+	%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+		%%  \sfx{IV}}\email{iauthor@gmail.com}
+	%%=============================================================%%
+	
+	\author*[1]{\fnm{Roman} \sur{Romanik}}\email{romanik@icmp.lviv.ua}
+	
+	\author{\fnm{O.~A.} \sur{Dobush}}\email{dobush@icmp.lviv.ua}
+	
+	\author{\fnm{M.~P.} \sur{Kozlovskii}}\email{mpk@icmp.lviv.ua}
+	
+	\author{\fnm{I.~V.} \sur{Pylyuk}}\email{piv@icmp.lviv.ua}
+	
+	\author{\fnm{M.~A.} \sur{Shpot}}\email{shpot.mykola@gmail.com}
+	
+	%\affil*[1]{\orgdiv{Department for Statistical Theory of Condensed Systems}, \orgname{Yukhnovskii Institute for Condensed Matter Physics of the National Academy of Sciences of Ukraine}, \orgaddress{\street{1 Svientsitskii Street}, \city{Lviv}, \postcode{79011}, \country{Ukraine}}}
+	
+	\affil{\orgname{Yukhnovskii Institute for Condensed Matter Physics of the National Academy of Sciences of Ukraine}, \orgaddress{%\street{1 Svientsitskii Street},
+			\city{Lviv}, \postcode{79011}, \country{Ukraine}}}
+	
+	%%==================================%%
+	%% Sample for unstructured abstract %%
+	%%==================================%%
+	
+	\abstract{A double-occupancy cell model of a fluid with the Curie-Weiss interaction is studied. First, it is shown that the model is isomorphic to the Blume-Capel model on a complete graph. The phase diagram is obtained using a combination of analytical and numerical methods. The analysis reveals a rich variety of thermodynamic behavior depending on the repulsion coupling strength. In particular, the model exhibits a regime resembling the single-occupancy lattice gas, a region with two coexistence lines terminating at two distinct critical points, and an interval of the repulsion coupling where a triple point emerges. The coordinates of the critical points and triple points are calculated over a wide range of repulsion coupling values, and the tricritical point is identified.}
+	
+	%%================================%%
+	%% Sample for structured abstract %%
+	%%================================%%
+	
+	% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+		% 
+		% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+		% 
+		% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+		% 
+		% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+	
+	\keywords{keyword1, Keyword2, Keyword3, Keyword4}
+	
+	%%\pacs[JEL Classification]{D8, H51}
+	
+	%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\section{Introduction}\label{sec:intro}
+	
+	Soft matter physics extensively relies on the soft-core, or bounded, potentials of interaction~\cite{Likos01}. They are considered as effective potentials for interactions between complex macromolecules in solutions. Examples are the solutions of polymer chains~\cite{LBHM00,BLHM01}, dendrimers~\cite{LSLetal01,MKL08}, star polymers~\cite{LLWetal98}, and other so-called ultrasoft colloids~\cite{Likos06}. The effect of interpenetrability of the molecules leads to interesting physical phenomena that are not observed in simple fluids with hard-core short-range interactions. Examples of such phenomena are the reentrant melting~\cite{LWL98} and associated high-density fluids~\cite{LLWL00}, clustered crystalline phases~\cite{MGKNL06,MCF07,MKL08} and cluster fluids~\cite{LMLKB10}. The phase diagrams of such systems of soft particles may exhibit multiple first-order phase transition lines each terminating at the corresponding critical points~\cite{NL11, WS13, WS14, Prestipino14, PGT15, dMDM23}. Therefore, there may be multiple, sometimes infinite, number of critical points present in the phase diagram. The possibility of particle interpenetration in systems with bounded interactions naturally motivates coarse-grained lattice descriptions allowing multiple occupancy of lattice cells. Such models provide a simplified framework for studying thermodynamic effects associated with ultrasoft effective interactions, including clustering phenomena and complex phase behavior.
+	
+	Lattice gas models have played an important role in understanding different phenomena in condensed matter physics~\cite{Baxter82,FriedliVelenik17}. Lattice models useful in the area of soft matter physics with bounded interactions must naturally allow multiple occupancy of cells by particles. Indeed, the lattice gases with multiple occupancy have recently gained more attention due to development in the soft matter physics and application of bounded effective potentials to describe the interactions between complex macromolecules that can interpenetrate with a finite energy penalty. The lattice models with unrestricted occupancies were studied in \cite{FHL04}, \cite{FL18,FL20}, and by us in~\cite{KKD20,KD22,RDKPS26a}. A particularly simple realization of a multiple-occupancy lattice model is the double-occupancy case. Such model was considered in~\cite{LYZ21}, where it was studied in the two-dimensional case with nearest-neighbors interactions. In particular, it was shown in~\cite{LYZ21} that the model is isomorphic to the Blume-Capel model~\cite{Blume66,Capel66}, similar to how the single-occupancy lattice gas is isomorphic to the Ising model~\cite{LY52}.
+	
+	In the current work, we study the double-occupancy cell model of a fluid with Curie-Weiss interaction. First, we show that the model can be obtained from the Blume-Capel model on the complete graph~\cite{HKBHK25} by a simple transformation. Then, we investigate its thermodynamic behavior in the framework of the grand canonical ensemble using the methods developed in~\cite{KKD20,KD22,RDKPS26a} for the infinite-occupancy cell model with Curie-Weiss interaction. Depending on the ratio between the repulsion and attraction couplings, the system exhibits qualitatively different types of phase behavior, including regimes with one or two critical points, tricritical behavior, and triple-point formation. We calculate the coordinates of the critical and triple points over a wide range of repulsion strengths and analyze the corresponding phase diagrams. Therefore, the present model provides a minimal mean-field framework for investigating phase transitions and coexistence phenomena in multiple-occupancy lattice systems.
+	
+	\section{Double occupancy cell fluid model with Curie-Weiss-type interaction}
+	We consider an open system of point particles in a macroscopic three-dimensional region ${\mathcal V} \subset \mathbb R^3$ of volume $V = \abs{\mathcal{V}}$. The region $\mathcal{V}$ is partitioned into $\mathscr{N}$ non-overlapping congruent cubic cells each of volume $v=\sigma^d$, where $\sigma$ is a linear length, and $d$ is the number of space dimensions (we set $d=3$ from the beginning). The volume $V$ of the whole system is thus $V = v \mathscr{N}$. In the thermodynamic limit, $V \to \infty$, $\mathscr{N} \to \infty$, while $\lim_{V \to \infty; \mathscr{N} \to \infty}v = \lim_{V \to \infty; \mathscr{N} \to \infty} V/\mathscr{N} = const$. The maximum number of particles allowed to occupy a cell is $n_{\rm max} = 2$. Hence, the model is called the double-occupancy cell fluid model. In general, this model is isomorphic to the Blume-Capel model, and different interparticle interactions can be considered. In~\cite{LYZ21}, the case of nearest-neighbors attractions and in-cell repulsion was studied in two dimensions by the means of Monte Carlo simulations. A case of a quantum system was studied in~\cite{Mancini05}, where the extended Hubbard model in the ionic limit was shown to also be isomorphic to the Blume-Capel model. 
+	
+	In the current study, we consider the interaction in the form of two contributions: a global, infinite-range attraction between each pair of particles, regardless of their position, and a local repulsion between two particles if they are located in the same cell. To begin with, we demonstrate how such model appears from the Blume-Capel model on the complete graph~\cite{HKBHK25}. The Hamiltonian for the latter reads:
+	\begin{equation}
+		\mathscr{H} = -\frac{J}{2\mathscr{N}} \sum_{l \neq m} S_l S_m + \Delta \sum_{l} S_l^2,
+	\end{equation}
+	where $J$ is the coupling constant, $\Delta$ is the so-called crystal field, $\mathscr{N}$ is the number of lattice sites, and the spin variables take on three values $S_l = \{-1, 0, 1\}$, $l \in \{1, \ldots, \mathscr{N}\}$.
+	
+	To transit to the cell-model representation, we introduce the cell-occupancy variables by
+	\begin{equation}
+		n_l = S_l + 1, \quad n_l = \{0,1,2\}.
+	\end{equation}
+	Performing the change of variable in the Hamiltonian, we arrive at
+	\begin{equation}
+		\label{eq:hamiltonian}
+		\mathscr{H} = -\frac{J}{2\mathscr{N}} \sum_{l \neq m} n_l n_m + \Delta \sum_l n_l (n_l - 1) + \left(J - \Delta - \frac{J}{\mathscr{N}}\right) \sum_l n_l,
+	\end{equation}
+	which clearly resembles the Hamiltonian considered in~\cite[Eq.~(1)]{LYZ21}. 
+	The interpretation of different terms in the Hamiltonian is the following. If two particles reside in different cells, they slightly attract with energy $-J/\mathscr{N} < 0$, which corresponds to the first term -- a global, Curie-Weiss-type attraction. When two particles are located in the same cell, there exist an energy cost $\Delta > 0$. This follows from the second term which does not equal zero only when a cell contains exactly two particles, $n_l=2$. In fact, the energy penalty for two particles being in the same cell is $2\Delta$, as follows from the second term in the Hamiltonian, since $n_l(n_l-1) =2$ for $n_l=2$. By contrast, in the Blume-Capel model the crystal-field term contributes only $\Delta$ for nonzero spin, since $S_l^2=1$ for $S_l = \pm 1$. Therefore, while $\Delta$ coincides with the crystal-field parameter of the Blume--Capel model under the mapping, the physical double-occupancy penalty is $2\Delta$. The last term in the Hamiltonian will just shift the chemical potential. Note that as a result of the variable change, an additive constant appeared in the Hamiltonian, which we have ignored.
+	
+	In what follows, the standard notation for thermodynamic quantities is adopted: $T$ the absolute temperature; $\beta = (k_{\mathrm B} T)^{-1}$ the inverse temperature; $k_{\mathrm B}$ the Boltzmann constant; $P$ the pressure; $\mu$ the chemical potential; $N$ the number of particles; $\rho = N/V$ the particle number density; $m$ the particle mass; $\hbar$ the Planck constant. The natural units for physical quantities are as follows: $\sigma$ for the length, $v$ for the volume, $J$ for the energy.
+	
+	As is also standard in the thermodynamics and statistical mechanics, we adopt the dimensionless, or reduced, quantities such as: the reduced temperature $T^* = k_{\mathrm B}T/J$; the reduced inverse temperature $\beta^* = \beta J$; the reduced pressure $P^* = Pv/J$; the reduced chemical potential $\mu^* = \mu/J$; the reduced particle number density $\rho^* = \rho \sigma^3$. It is worth noting that the definition of $\rho = N/V$, as well as other quantities expressed via $N$, is applicable for ensembles with a fixed number of particles, e.g. for the canonical ensemble. In the case of ensembles with a variable (fluctuating) particle number, e.g. the grand canonical ensemble, this definition would read $\rho = \langle N \rangle / V$, where $\langle N \rangle$ is the average number of particles, and $\langle \ldots \rangle$ means the average over the corresponding ensemble. We will not introduce different notations for these two cases, as the meaning is clearly obvious depending on the considered ensemble.
+	
+	If we include and exclude the self-interaction term in the Hamiltonian~\eqref{eq:hamiltonian}
+	\begin{equation}
+		\sum_{l\neq m} n_l n_m = \sum_{l,m} n_l n_m - \sum_l n_l^2 = \left(\sum_l n_l\right)^2 - \sum_l n_l^2,
+	\end{equation}
+	we arrive at 
+	\begin{equation}
+		\mathscr{H} = -\frac{J}{2\mathscr{N}} \left(\sum_l n_l\right)^2  + \left(\Delta + \frac{J}{2\mathscr{N}}\right) \sum_l n_l^2 + \left(J -2\Delta - \frac{J}{\mathscr{N}}\right) \sum_l n_l.
+	\end{equation}
+	Introducing the notation
+	\begin{equation}
+		a = \frac{\Delta}{J},
+	\end{equation}
+	we can write the expression for the Boltzmann factor as
+	\begin{equation}
+		{\rm e}^{-\beta \mathscr{H}} = \exp \left[\frac{1}{2T^* \mathscr{N}} \left(\sum_l n_l\right)^2 + \frac{2a-1}{T^*} \sum_l n_l - \frac{a}{T^*} \sum_l n_l^2\right].
+	\end{equation}
+	Here, terms of order $J/(2\mathscr{N})$ relative to $\Delta$, and $J/\mathscr{N}$ relative to $(J-2\Delta)$, have been neglected.
+	
+	The grand partition function is now defined as
+	\begin{eqnarray}
+		\label{eq:Xi_pi}
+		\Xi & = & \sum_{n_1 = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_1} \frac{{\rm e}^{\beta\mu n_1}}{n_1!} \ldots \sum_{n_{\mathscr{N}} = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_{\mathscr{N}}} \frac{{\rm e}^{\beta\mu n_{\mathscr{N}}}}{n_{\mathscr{N}}!} {\rm e}^{-\beta\mathscr{H}}
+	\end{eqnarray}
+	Usually, when lattice gas models are considered, the terms of type $(v/\Lambda)^{n_l}$ are not included into the partition function, and only configuration partition functions are studied~\cite{FriedliVelenik17}. We, however, consider a cell model as a coarse-grained model for a continuum system. Therefore, $\Lambda^3$ appears due to the integration over momenta, and $v$ due to transition from the integration over space variables to the summation over lattice cells
+	\begin{equation}
+		\int_V {\rm d} {\vb{r}} \to v \sum_{l=1}^{\mathscr{N}} \qquad.
+	\end{equation}
+	The issue of inclusion of the term $\frac{1}{\prod_l n_l!}$ into the definition of $\Xi$ was discussed in~\cite{FL18}. It was argued that the inclusion of this term corresponds to the case of distinguishable particles, while not including such term corresponds to the system of indistinguishable particles. The grand partition function for indistinguishable particles is therefore expressed as
+	\begin{eqnarray}
+		\label{Xi:indist}
+		\Xi & = & \sum_{n_1 = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_1} {\rm e}^{\beta\mu n_1} \ldots \sum_{n_{\mathscr{N}} = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_{\mathscr{N}}} {\rm e}^{\beta\mu n_{\mathscr{N}}} {\rm e}^{-\beta\mathscr{H}}.
+	\end{eqnarray}
+	The comparison of the results for the two cases is of great interest as well. For example, in Refs.~\cite{FL18, FL20} the two cases were studied alongside throughout both papers. In this paper, we consider the case of the system of distinguishable particles in more details, since it was the system we implied in our previous works. However, in Section~\ref{sec:indist} we present the result for the system of indistinguishable particles as well. As will be seen there, the latter case may be of more importance in the context of isomorphism of the double-occupancy cell model to the Blume-Capel model.
+	
+	\section{Distinguishable particles}\label{sec:distinct}
+	
+	In this Section, we primarily focus on the case of distinguishable particles.
+	The explicit expression for the grand partition function defined in~\eqref{eq:Xi_pi} becomes
+	\begin{eqnarray}
+		\label{eq:Xi1}
+		\Xi & = & \sum_{n_1 = 0}^2 \cdots \sum_{n_{\mathscr{N}} = 0}^2 \exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] \frac{\left(v^* T^{*3/2}\right)^{\sum_l n_l}}{n_1! \ldots n_{\mathscr{N}}!} \exp\left[\frac{\mu^* + 2a - 1}{T^*}\sum_l n_l - \frac{a}{T^*}\sum_l n_l^2\right]
+		\nonumber\\
+		& = & \sum_{n_1 = 0}^2 \cdots \sum_{n_{\mathscr{N}} = 0}^2 \exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] \prod_l \pi(T^*,\mu^*;n_l),
+	\end{eqnarray}
+	where $v^* = v/\Lambda_J^3$, $\Lambda_J = (2\pi \hbar^2/mJ)^{1/2}$, and
+	\begin{equation}
+		\pi(T^*,\mu^*; n_l) = \frac{\left(v^* T^{*3/2}\right)^{n_l}}{n_l!} \exp\left(\frac{\mu^* + 2a -1}{T^*}n_l - \frac{a}{T^*} n_l^2\right).
+	\end{equation}
+	The last two equations are the same as obtained in~\cite[see Eq.~(2.11)]{KKD20} for the infinite-occupancy cell model, with three differences. First, the summation by the occupancy numbers is now restricted by the maximum occupancy number $n_{\rm max}=2$. Second, the chemical potential is shifted by value $2a-1$. Third, the coefficient at $n_l^2$ is now $a/T^*$, but was $a/(2T^*)$. Nevertheless, the methodology developed in~\cite{KKD20,KD22,RDKPS26a} can be applied here as well. 
+	Therefore, we transformed the Blume-Capel model on a complete graph to a double-occupancy cell fluid model with the Curie-Weiss interaction. This illustrates that there exist an isomorphism between the two models. 
+	
+	There exists one more crucial difference between the infinite-occupancy and double-occupancy models for the considered case of long-ranged, Curie-Weiss-type interaction. The condition of stability $a > 1$~\cite{KKD20} is not required anymore, since the thermodynamic catastrophe~\cite{FR66,HR07,FL20} is easily avoided by a finite maximum occupancy number $n_{\rm max}=2$. This allows us to consider a system in a wider range of parameter $a$. In fact, there are not any restrictions on $a$ in the double-occupancy model, and it cat take on any real values. In this paper, we will consider only non-negative values $a \geq 0$.
+	
+	Let us now explicitly apply the Gaussian integral
+	\begin{equation}
+		\exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] = \sqrt{\frac{\mathscr{N}T^*}{2\pi}} \int_{-\infty}^{\infty} \exp\left(-\frac{\mathscr{N}}{2}T^* y^2 + y \sum_l n_l\right) {\rm d} y,
+	\end{equation}
+	to Eq.~\eqref{eq:Xi1} and introduce the ``effective'' (or ``shifted'') chemical potential $\mu_{\rm eff}^*$ as
+	\begin{equation}
+		\mu_{\rm eff}^* = \mu^* + 2a -1,
+	\end{equation}
+	to arrive at the following form
+	\begin{equation}
+		\Xi(T^*,\mu_{\rm eff}^*) = \sqrt{\frac{\mathscr{N} T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp\left[\mathscr{N} \tilde{E}(T^*,\mu_{\rm eff}^*; y)\right] {\rm d} y,
+	\end{equation}
+	where
+	\begin{equation}
+		\tilde{E}(T^*,\mu_{\rm eff}^*; y) = -\frac{1}{2}T^* y^2 + \ln \tilde{K}_0(T^*,\mu_{\rm eff}^*;y),
+	\end{equation}
+	with special functions $\tilde{K}_0(T^*,\mu_{\rm eff}^*;y)$ defined as
+	\begin{equation}
+		\tilde{K}_0(T^*,\mu_{\rm eff}^*; y) = \sum_{n=0}^{2} \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp \left[\left(y + \frac{\mu_{\rm eff}^*}{T^*}\right)n - \frac{a}{T^*}n^2\right].
+	\end{equation}
+	The change of variables
+	\begin{equation}
+		z = y + \frac{\mu^*_{\rm eff}}{T^*} + \ln v^*
+	\end{equation}
+	results into
+	\begin{equation}
+		\label{eq:Xi_z}
+		\Xi = \sqrt{\frac{\mathscr{N} T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp \left[\mathscr{N} E(T^*, \mu^*_{\rm eff}; z)\right] {\rm d} z,
+	\end{equation}
+	where
+	\begin{equation}
+		\label{def:E}
+		E(T^*,\mu^*;z) = -\frac{1}{2}T^* \left(z - \frac{\mu^*_{\rm eff}}{T^*} - \ln v^*\right)^2 + \ln K_0(T^*;z),
+	\end{equation}
+	\begin{equation}
+		\label{def:K0}
+		K_0(T^*;z) = \sum_{n=0}^{2} \frac{\left(T^{*3/2}\right)^n}{n!} \exp\left(zn - \frac{a}{T^*}n^2\right).
+	\end{equation}
+	Next, we integrate Eq.~\eqref{eq:Xi_z} by the Laplace's method~\cite{BenderOrszag99} and find
+	\begin{equation}
+		\Xi \simeq \exp\left[\mathscr{N} E(T^*,\mu^*_{\rm eff}; \bar{z}_{\rm max})\right]
+	\end{equation}
+	where $\bar{z}_{\rm max} = \bar{z}_{\rm max}(T^*,\mu^*_{\rm eff})$ is the global maximum of $E(T^*,\mu^*_{\rm eff}; z)$. We do not provide details of calculating $\bar{z}_{\rm max}$ here. The procedure has been outlined in much details in a number of previous studies~\cite{KKD20,KD22,RDKPS26a}. Here, we just present the equation for determining $\bar{z}_{\rm max}$:
+	\begin{equation}
+		\label{eq:extremum}
+		T^* \bar{z} - \left(\mu^*_{\rm eff} + T^* \ln v^*\right) = \frac{K_1(T^*; \bar{z})}{K_0(T^*; \bar{z})},
+	\end{equation}
+	where we introduced the function $K_1(T^*; z)$, which is the first member of the hierarchy of functions $K_j(T^*; z)$, $j=1, 2, \ldots $, defined as
+	\begin{equation}
+		\label{def:Kj}
+		K_j(T^*; z) = \sum_{n=0}^2 \frac{n^j \left(T^{*3/2}\right)^n}{n!} \exp\left(z n - \frac{a}{T^*}n^2\right).
+	\end{equation}
+	In Eq.~\eqref{eq:extremum}, we select only those solutions that lead to the global maximum of $E(T^*, \mu^*_{\rm eff}; z)$ and denote them by $\bar{z}_{\rm max}$. A useful consequences from Eq.~\eqref{eq:extremum} is
+	\begin{equation}
+		\label{eq:extremum_z}
+		\bar{z}_{\rm max} - \frac{\mu^*_{\rm eff}}{T^*} - \ln v^* = \frac{1}{T^*} \frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})}.
+	\end{equation}
+	We can substitute this equality back into the function $E$ and eliminate its explicit dependence on $\mu^*_{\rm eff}$:
+	\begin{equation}
+		E(T^*; \bar{z}_{\rm max}) = -\frac{1}{2T^*} \left[\frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})}\right]^2 + \ln K_0(T^*;\bar{z}_{\rm max}).
+	\end{equation}
+	
+	By standard formulas of statistical mechanics, we obtain the pressure as a function of the temperature (explicitly) and the chemical potential (implicitly): 
+	\begin{equation}
+		\label{eq:pressure}
+		P^* = T^* E(T^*; \bar{z}_{\rm max}).
+	\end{equation}
+	The reduced particle number density (or the average occupancy number) is then given by
+	\begin{equation}
+		\label{eq:rho}
+		\rho^* = \frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})}.
+	\end{equation}
+	At any given temperature $T^*$, Eqs.~\eqref{eq:pressure} and~\eqref{eq:rho} can be formally considered as a parametric equation of state with $\bar{z}_{\rm max}$ being the parameter. Therefore, we have obtained a parametric equation of state for the double-occupancy cell model with Curie-Weiss interaction.
+	
+	\subsection{Critical point coordinates}
+	\label{sec:cp}
+	
+	\begin{table}[h]
+		\centering
+		\caption{Critical point coordinates of the double-occupancy cell model for the case of distinguishable particles. At the tricritical point, $a_{\rm tc} = \frac{1}{2} \ln 2$. For any value $a \leq a_{\rm tc}$, there is a single critical point; for any value $a > a_{\rm tc}$, there are two critical points.}
+		\begin{tabular}{c|c|c|c|c|c}
+			\toprule
+			$a=\Delta/J$ & $T^*_c$ & $\rho^{*(1)}_c $ & $P^{*(1)}_c$ & $\rho^{*(2)}_c$ & $P^{*(2)}_c$\\
+			\midrule
+			5.0 & $0.25 = \frac{1}{4}$ & $0.5 = \frac{1}{2}$ & $0.0482868 \approx \frac{1}{4}\left(\ln 2 - \frac{1}{2}\right)$ & $1.5 = \frac{3}{2}$ & 9.22157 \\
+			2.0 & 0.250000 & 0.500000 & 0.0482868 & 1.50000 & 3.22157 \\
+			1.5 & 0.250003 & 0.500009 & 0.0482882 & 1.49999 & 2.22158 \\
+			1.2 & 0.250034 & 0.500102 & 0.0483018 & 1.49990 & 1.62166 \\
+			1.0 & 0.250168 & 0.500507 & 0.0483616 & 1.49949 & 1.22202 \\
+			0.9 & 0.250378 & 0.501135 & 0.0484545 & 1.49886 & 1.02257 \\
+			0.8 & 0.250852 & 0.502562 & 0.0486653 & 1.49744 & 0.823816 \\
+			0.7 & 0.251946 & 0.505871 & 0.0491542 & 1.49413 & 0.626683 \\
+			0.6 & 0.254567 & 0.513894 & 0.0503395 & 1.48611 & 0.433501 \\
+			0.5 & 0.261400 & 0.535459 & 0.0535217 & 1.46454 & 0.250934 \\
+			0.4 & 0.283929 & 0.615014 & 0.0650251 & 1.38499 & 0.104907 \\
+			$\frac{1}{2}\ln 2 \approx 0.346574$ & $\frac{1}{3} \approx 0.333333$ & 1.00000 & 0.0972532 & 1.00000 & 0.0972532\\
+			0.3 & 0.400889 & 1.0 & 0.144316 & - & - \\
+			0.2 & 0.483166 & 1.0 & 0.186358 & - & - \\
+			$\frac{1}{4} \ln 2 \approx 0.173287$ & $\frac{1}{2}$ & 1.0 & 0.193147 & - & - \\
+			0.1 & 0.540284 & 1.0 & 0.207128 & - & - \\
+			0.0 & 0.585786 & 1.0 & 0.219315 & - & - \\
+			\bottomrule
+		\end{tabular}
+		\label{tab:critical-points}
+	\end{table}
+	As was shown in~\cite{RDKPS26a}, the physical conditions for finding the critical point
+	\begin{equation}
+		\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} = 0, \quad {\text and } \quad 
+		\left(\frac{\partial^2 P^*}{\partial \rho^*}\right)_{T^*} = 0,
+	\end{equation}
+	in combination with the extrema condition for $E(T^*, \mu^*_{\rm eff}; z)$, result into the system of equations
+	\begin{equation}
+		\label{eq:system}
+		\begin{cases}
+			E_1(T^*,\mu^*_{\rm eff}; \bar{z}) = 0,\\
+			E_2(T^*; \bar{z}) = 0,\\
+			E_3(T^*; \bar{z}) = 0.
+		\end{cases}
+	\end{equation}
+	where functions $E_j$ are defined as derivatives of order $j$ of $E(T^*,\mu^*_{\rm eff}; z)$ with respect to $z$:
+	\begin{equation}
+		E_j(T^*,\mu^*_{\rm eff}; z) \equiv \frac{\partial^*}{\partial z^j} E(T^*, \mu^*_{\rm eff}; z).
+	\end{equation}
+	Note that due to Eq.~\eqref{def:E}, the functions $E_j$ with $j \geq 2$ do not explicitly depend on $\mu^*_{\rm eff}$. Therefore, the last two equations determine the critical values for the temperature, $T^*_c$, and for $\bar{z}^{(c)}_{\rm max}$. Then, we find the critical value of the chemical potential $\mu^{*(c)}_{\rm eff}$ from the first condition $E_1 = 0$, which is equivalent to Eq.~\eqref{eq:extremum_z}:
+	\begin{equation}
+		\mu^*_{\rm eff} = T^* \bar{z}_{\rm max} - \frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})} - T^* \ln v^*.
+	\end{equation}
+	Then, we find all the other quantities at the critical point, such as pressure via Eq.~\eqref{eq:pressure} or the particle number density via Eq.~\eqref{eq:rho}.
+	
+	
+	It turns out that the number of solutions to Eq.~\eqref{eq:system} depends on the ratio $a=\Delta/J$, and therefore the phase diagram is also strongly dependent on that. For large values of $a$, there are two critical points with the same critical temperature but different critical values for $\bar{z}$, which in turn means different critical densities, by Eq.~\eqref{eq:rho}. For example, for $a=5.0$, the two critical points $(T^*_c; \rho^*_c)$ are $(0.25; 0.5)$ and $(0.25;1.5)$. These limiting values for the critical point coordinates at large $a$ can also be expressed as $(1/4; 1/2)$ and $(1/4; 3/2)$, respectively. As the value of $a$ decreases, the critical temperature increases, the lower critical density increases above $0.5$, while the higher critical density decreases below $1.5$. For example, at $a=0.6$, the two critical points are $(0.254567; 0.513894)$ and $(0.254567; 1.48611)$, correspondingly. More data are collected in Table~\ref{tab:critical-points}. We denote the quantities related to the lower-density critical point by a superscript ${}^{(1)}$, and to the higher-density one by ${}^{(2)}$. We observe that as $a$ decreases, the difference between $\rho^{*(1)}_c$ and $\rho^{*(2)}_c$ becomes smaller and smaller, until they become the same at $a_{\rm tc}=\frac{1}{2}\ln 2 \approxeq 0.346574$, in which case the two lines of critical points merge into one at the point $(0.333333; 1.00000)$, or simply $(1/3;1)$. This is the tricritical point. For $a < a_{\rm tc}$, only one critical point remains in the system, always at $\rho^*_c = 1.0$. As the parameter $a$ changes from $a_{\rm tc}$ down to 0, the critical temperature changes from $T^*_t = 0.333333$ up to $T^*_c = 0.585786$. Figure~\ref{fig:T-rho-a-3d} illustrates this behavior based on the data from Table~\ref{tab:critical-points}.
+	
+	\begin{figure}
+		\centering
+		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram3.pdf}
+		\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram4.png}
+		\caption{Phase diagram of the double-occupancy cell model of a fluid with Curie-Weiss interaction for the system of distinguishable particles. Blue line: the line of critical points at $a \leq a_{\rm tc}$. Red lines: the lines of critical points at $a > a_{\rm tc}$. Black line: the line of triple points, which exists in the interval $a_{\rm tp} < a < 0.5$. All the line meet at the tricritical point.}
+		\label{fig:T-rho-a-3d}
+	\end{figure}
+	
+	Note that in the region where two critical points exist, the sum of two critical densities always remains the same
+	\begin{equation}
+		\rho^{*(1)}_c + \rho^{*(2)}_c = 2.
+	\end{equation}
+	
+	\subsection{Coexistence curves}\label{sec:coex}
+	Having found critical point coordinates for different values of $a$, we are now proceeding with building the coexistence curves. Based on the analysis of Section~\ref{sec:cp}, we present phase diagrams for the double-occupancy cell model with the Curie-Weiss interaction for a set of selected increasing values of $a$, namely $a=0.3,$ $0.375,$ $0.45,$ and $0.6$, see Fig.~\ref{fig:phase_diagrams}.
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}[b]{0.23\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/coex_a_03}
+			\caption{$a=0.3$}
+			\label{fig:pd1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.23\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/coex_a_0375_a}
+			\caption{$a=0.375$}
+			\label{fig:pd2}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.23\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/coex_a_045_a}
+			\caption{$a=0.45$}
+			\label{fig:pd3}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.23\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{img/coex_a_06_a}
+			\caption{$a=0.6$}
+			\label{fig:pd4}
+		\end{subfigure}
+		
+		\caption{The $T^* - \rho^*$ phase diagrams of the double-occupancy lattice gas for the case of distinguishable particles at different values of $a=\Delta/J$.}
+		\label{fig:phase_diagrams}
+		
+	\end{figure}
+	
+	When the ratio of repulsion to attraction couplings is small enough, the coexistence line of the double occupancy cell model resembles that of a single-occupancy lattice gas. In particular, there is one critical point, and for temperatures below the critical value, a symmetric coexistence curve between two phases exists. The two phases are characterized by low and high densities. Figure~\ref{fig:pd1} shows the phase diagram in the $T^* - \rho^*$ plane, which is a typical diagram for small values of $a$, specifically for $a \leq a_{\rm tc}$, where $a_{\rm tc} = \frac{1}{2}\ln 2$ in the case of distinguishable particles. At $a=0.3$, the coordinates of the critical point are $T^*_c = 0.401$, $\rho^*_c=1.0$, and $P^*_c=0.144$. 
+	
+	As soon as $a$ becomes greater than $\frac{1}{2}\ln 2$, the line of critical points bifurcates, and two critical points appear. Figure~\ref{fig:pd2} illustrates the phase diagram at $a=0.375$. Two critical points are observed with the same critical temperature $T^*_c = 0.298$, but with different densities, $\rho^{*(1)}_c = 0.676$ and $\rho^{*(2)}_c=1.32$, and different pressures, $P^{*(1)}_c=0.073$ and $P^{*(1)}_c=0.086$. Now, between the low density phase (let us call it phase I) and the high density phase (let us call it phase III), a phase of intermediate density appears (let us call it phase II). But the phase II exists only for temperatures down to some temperature $T^*_{\rm tr}$. Below that temperature, the phase transition occurs directly between phase I and phase III. The point $(T^*_{\rm tr}, P^*_{\rm tr})$ is called \textit{the triple point}, since this is the point where three phases, namely phase I, phase II, and phase III, can coexist at the same pressure and temperature, but at different values of densities.
+	
+	As the value of $a$ is increased even more, the phase diagram changes in such a way that the difference between the critical densities increases, the critical temperature slowly decreases, and the temperature of the triple-point temperature decreases quite notably. The phase diagram at $a=0.45$ is demonstrated in Fig.~\ref{fig:pd3}. 
+	
+	At some value of $a$, namely at $a \approx 0.5$, the triple point temperature becomes zero, and for greater $a$ the triple point does not exist anymore, as is seen in Fig.~\ref{fig:pd4} where the phase diagram is presented for $a=0.6$. For such high values of $a$, there are three phases at sufficiently low temperatures. At very low temperatures, e.g. $T^* < 0.05$, the phase densities are $\rho^*_{I} \approx 0$, $\rho^*_{II} \approx 1$, and $\rho^*_{III} \approx 2$, and remain nearly constant. This means that we observe pronounced phase transitions between three phases of integer-valued densities.
+	
+	Figure~\ref{fig:combined}  combines the results presented in Figs.~\ref{fig:T-rho-a-3d} and~\ref{fig:phase_diagrams}. The coexistence curves are presented in the three dimensional space along with the critical point lines and the triple-point line.
+	
+	\begin{figure}
+		\centering
+		%\includegraphics[width=0.6\textwidth]{img/full3d_2_edited_1.pdf}
+		\includegraphics[width=0.6\textwidth]{img/3Dcombo-3.png}
+		\caption{The phase diagram in the $(T^*,\rho^*,a)$-space for the case of distinguishable particles. This figure combines results of Figs.~\ref{fig:T-rho-a-3d} and~\ref{fig:phase_diagrams} in one view. Green dashed lines: the coexistence curves at several values of parameter $a$: $a=0.3$, $a=0.375$, $a=0.45$, and $a=0.6$. Blue and Red lines are the locus of critical points. Black line is the line of triple points.}
+		\label{fig:combined}
+	\end{figure}
+	
+	\subsection{Triple point coordinates}
+	In the interval $\frac{1}{2}\ln 2 < a < 0.5$, the system possesses a triple point, where three phases -- phase I, phase II, and phase III -- characterized by different densities, can coexist at the same temperature and pressure. The numerical results for the triple-point coordinates are presented in Table~\ref{tab:triple-line} at some values of $a$ in the considered interval.
+	
+	\begin{table}[h]
+		\centering
+		\caption{Triple point coordinates of the double-occupancy cell model for the case of distinguishable particles. A triple point exists in the system in the interval $a_{\rm tc} \leq \Delta/J < 0.5$, where $a_{\rm tc} = \frac{1}{2} \ln 2$.}
+		\begin{tabular}{c|c|c|c|c|c}
+			\toprule
+			$a=\Delta/J$ & $T^*_{\rm tr}$ & $P^*_{\rm tr}$ & $\rho^{*(I)}_{\rm tr}$ & $\rho^{*(II)}_{\rm tr}$ & $\rho^{*(III)}_{\rm tr}$ \\
+			\midrule
+			0.500 & $\approx 0.0$ & $\approx 0.0$ & $\approx 0.0$ & 1.0 & $\approx 2.0$ \\
+			0.475 & 0.0719370 & $6.93 \cdot 10^{-5}$ & $9.69 \cdot 10^{-4}$  & 1.0 & 1.99903 \\
+			0.450 & 0.135275 & $3.585 \cdot 10^{-3}$ & 0.0292224 & 1.0 & 1.97078 \\
+			0.425 & 0.185875 & 0.0143790 & 0.0981956 & 1.0 & 1.90180 \\
+			0.400 & 0.231382 & 0.0320139 & 0.207212 & 1.0 & 1.79279 \\
+			0.375 & 0.276725 & 0.0569574 & 0.380556 & 1.0 & 1.61944 \\
+			0.350 & 0.325987 & 0.0915080 & 0.766700 & 1.0 & 1.23330 \\
+			$\frac{1}{2}\ln 2 \approx 0.346574$ & $0.333333 = \frac{1}{3}$ & 0.0972532 & 1.0 & 1.0 & 1.0 \\
+			\bottomrule
+		\end{tabular}
+		\label{tab:triple-line}
+	\end{table}
+	
+	It is worth noting that in the classical, single-occupancy lattice gas models the triple point does not exist, since there are only two phases in the model. In contract, multiple-occupancy models may posses one or more triple points. When we originally studied the multiple-occupancy cell model of a fluid~\cite{KKD20, KD22}, the triple points were not observed. In~\cite{KDPRS26}, we managed to obtain the triple point with the help of introducing state-dependent interactions. In particular, the pair interaction between particles was assumed to depend on temperature, and this assumption lead to the emergence of a triple point~\cite{KDPRS26}. In the multiple-occupancy cell model with unrestricted occupancy, there is a strict limitation $a \geq 1$, thus we could not consider the region $a < 1$. In the double-occupancy model, this restriction is not required, and the triple points naturally emerge in the system in the interval $a_{\rm tc} < a < 1.0$.
+	
+	\subsection{Limiting cases}
+	When comparing our results for some limiting cases from Table~\ref{tab:critical-points} and Table~\ref{tab:triple-line} with the results of Ref.~\cite{HKBHK25}, we may notice the following discrepancies. The first one is that at $\Delta = 0$, the critical temperature for the cell model is $T^*_c=0.586$, while for the Blume-Capel model it was found to be $T^*_c=3/2$. The second one is that at the tricritical point, $a_{\rm tc}=\frac{1}{2}\ln 2.0$ for the cell model, and $a_{\rm tc}=\frac{2}{3} \ln 2$ for the Blume-Capel model. We conclude that this discrepancies are associated with the fact that in this Section we considered distinguishable particles and the grand partition function contained multipliers of type $\frac{1}{n_l!}$. Let us now proceed with consideration of the cell model for a system of indistinguishable particles.
+	
+	\section{Indistinguishable particles} \label{sec:indist}
+	In this Section, we consider the cell model for a system of indistinguishable particles characterized by the grand partition function~\eqref{Xi:indist}. The method of calculation is the same as presented in Section~\ref{sec:distinct}, and the analytical results of Eqs.~\eqref{eq:Xi_z} -- \eqref{eq:rho} remain the same if we account for the changed form for the special functions $K_0$ and $K_j$:
+		\begin{equation}
+		\label{def:K0ind}
+		K_0(T^*;z) = \sum_{n=0}^{2} \left(T^{*3/2}\right)^n \exp\left(zn - \frac{a}{T^*}n^2\right),
+	\end{equation}
+	\begin{equation}
+		K_j(T^*; z) = \sum_{n=0}^2 n^j \left(T^{*3/2}\right)^n \exp\left(z n - \frac{a}{T^*}n^2\right),
+	\end{equation}
+	where the multiplier $1/n!$ is missing compared to Eqs~\eqref{def:K0} and~\eqref{def:Kj}.
+	
+	\begin{table}[h]
+	\centering
+	\caption{Critical point coordinates of the double-occupancy cell model for the case of indistinguishable particles. At the tricritical point, $a_{\rm tc} = \frac{2}{3} \ln 2$. For any value $a \leq a_{\rm tc}$, there is a single critical point; for any value $a > a_{\rm tc}$, there are two critical points.}
+		\begin{tabular}{c|c|c|c|c|c}
+			\toprule
+			$a=\Delta/J$ & $T^*_c$ & $\rho^{*(1)}_c $ & $P^{*(1)}_c$ & $\rho^{*(2)}_c$ & $P^{*(2)}_c$\\
+			\midrule
+			5.0 & $0.25 = \frac{1}{4}$ & $0.5 = \frac{1}{2}$ & $0.0482868 \approx \frac{1}{4}\left(\ln 2 - \frac{1}{2}\right)$ & $1.5 = \frac{3}{2}$ & 9.04829 \\
+			2.0 & 0.250000 & 0.500000 & 0.0482868 & 1.50000 & 3.04829 \\
+			1.5 & 0.250006 & 0.500018 & 0.0482895 & 1.49998 & 2.04830 \\
+			1.2 & 0.250068 & 0.500204 & 0.0483169 & 1.49980 & 1.44842 \\
+			1.0 & 0.250340 & 0.501020 & 0.0484374 & 1.49898 & 1.04895 \\
+			0.9 & 0.250766 & 0.502302 & 0.0486268 & 1.49770 & 0.849771 \\
+			0.8 & 0.251749 & 0.505276 & 0.0490662 & 1.49472 & 0.651669 \\
+			0.7 & 0.254116 & 0.512503 & 0.0501341 & 1.48750 & 0.456193 \\
+			0.6 & 0.260379  & 0.532171 & 0.0530373 & 1.46783 & 0.267878 \\
+			0.5 & 0.283117 & 0.611865 & 0.0645817 & 1.38814 & 0.106814 \\
+			$\frac{2}{3}\ln 2 \approx 0.462098$ & $\frac{1}{3} \approx 0.333333$ & 1.00000 & 0.0972532 & 1.00000 & 0.0972532\\
+			0.45 & 0.378647 & 1.0 & 0.130182 & - & - \\
+			0.4 & 0.452377 & 1.0 & 0.172407 & - & - \\
+			0.3 & 0.532359 & 1.0 & 0.204622 & - & - \\
+			0.2 & 0.587241 & 1.0 & 0.219645 & - & - \\
+			0.1 & 0.630545 & 1.0 & 0.227849 & - & - \\
+			0.0 & $\frac{2}{3} \approx 0.666667$  & 1.0 & $0.232408 \approx \frac{2}{3} \ln 3 - \frac{1}{2}$  & - & - \\
+			\bottomrule
+		\end{tabular}
+		\label{tab:critical-points-ind}
+	\end{table}
+	
+	\begin{table}[h]
+	\centering
+	\caption{Triple point coordinates of the double-occupancy cell model for the case of indistinguishable particles. A triple point exists in the system in the interval $a_{\rm tc} \leq \Delta/J < 0.5$, where $a_{\rm tc} = \frac{2}{3} \ln 2$.}
+		\begin{tabular}{c|c|c|c|c|c}
+			\toprule
+			$a=\Delta/J$ & $T^*_{\rm tr}$ & $P^*_{\rm tr}$ & $\rho^{*(I)}_{\rm tr}$ & $\rho^{*(II)}_{\rm tr}$ & $\rho^{*(III)}_{\rm tr}$ \\
+			\midrule
+			0.500 & $\approx 0.0$ & $\approx 0.0$ & $\approx 0.0$ & 1.0 & $\approx 2.0$ \\
+			0.495 & 0.151204 & $6.03783 \times 10^{-3}$ & 0.0457859 & 1.0 & 1.95421 \\
+			0.490 & 0.182706 & 0.0134364 & 0.0924053 & 1.0 & 1.90759 \\
+			0.485 & 0.208422 & 0.0221600 & 0.145810 & 1.0 & 1.85419 \\
+			0.480 & 0.232284 & 0.0324399 & 0.209923 & 1.0 & 1.79008 \\
+			0.475 & 0.256113 & 0.0447467 & 0.291335  & 1.0 & 1.70867 \\
+			0.470 & 0.281540 & 0.0600103 & 0.404731 & 1.0 & 1.59527 \\
+			0.465 & 0.311272 & 0.0804435 & 0.600782 & 1.0 & 1.39922 \\
+			$\frac{2}{3}\ln 2 \approx 0.462098$ & $0.333333 = \frac{1}{3}$ & 0.0972532 & 1.0 & 1.0 & 1.0 \\
+			\bottomrule
+		\end{tabular}
+		\label{tab:triple-line-ind}
+	\end{table}
+	
+	Qualitatively, the behavior of the model and its phase diagram described in~Sections~\ref{sec:cp}--\ref{sec:coex} remains the same.
+	However, the numerical results change for the coordinates of the critical and triple points. The corresponding values for the case of indistinguishable particles are presented in Tables~\ref{tab:critical-points-ind} and~\ref{tab:triple-line-ind}. In particular, we can see that at $\Delta = 0$, the critical temperature $T^*_c = \frac{2}{3}$, which coincides with the value for the Blume-Capel model~\cite{HKBHK25}. The tricritical point is located at $(T^*_{\rm tc} = \frac{1}{3}; a_{\rm tc} = \frac{2}{3} \ln 2)$, which is the same as in the Blume-Capel model~\cite{HKBHK25} as well. This leads us to the conclusion that for the proper isomorphism between the Blume-Capel model and a lattice gas, the system of indistinguishable particles must be considered.
+	
+	Note that the interval where the triple point exists is shorter for the case of indistinguishable particles. It is $\frac{2}{3}\ln 2 < a < 0.5$ compared to $\frac{1}{2} \ln 2 < a < 0.5$ for the case of distinguishable particles.
+	
+	
+	\section{Different phases and their interpretation}
+	For large enough $a$, and for low enough temperatures, three distinct phases exist in the studied double-occupancy cell model of a fluid. By analogy with our previous works~\cite{KD22}, we call these phases phase I, phase II, and phase III, respectively. However, we can also adopt the terminology of other works where two critical points are observed in a fluid. For example, gas (phase I), low-density liquid (phase II), and high-density liquid (phase III) terminology was adopted in~\cite{Franzese07}. In~\cite{LYZ21}, the corresponding phases were called gas, liquid, and crystal states. We, however, avoid calling the dense fluid phase as a crystal state, since we deal rather with high-density mean-field fluids, similar to the one reported in~\cite{LBH00}. See also Appendix~\ref{sec:pair} where this idea is supported by the results for the pair distribution function.
+	
+	\section{Conclusions}
+	We studied a double-occupancy cell model of a many-particle system, which means that no more than two particles can be located in the same cell simultaneously. The interaction between particles is considered in the form of two contributions: long-range, global attraction in the form of Curie-Weiss interaction, and local finite repulsion between two particles in the same cell. Even though the model is of interest by itself, in this paper we first obtain the hamiltonian of it from the Blume-Capel model on a complete graph, via a simple transformation from spin variables $\sigma_l \in \{-1, 0, +1\}$ to occupancy variables $n_l \in \{0, 1, 2\}$. This transformation reveals the existing isomorphism between the Blume-Capel model and the double-occupancy cell model. When studying the multiple-occupancy cell fluid (lattice gas) models, two cases are considered, that of distinguishable and indistinguishable particles. Mathematically, the difference lies in the definition of the grand partition functions for the two cases, compare Eq.~\eqref{eq:Xi_pi} and Eq.~\eqref{Xi:indist}. In the article we present how the grand partition function for the double-occupancy cell model with the Curie-Weiss-type interaction is calculated based on a method previously developed for the infinite-occupancy cell model. We present more details for the case of distinguishable particles. In particular, we obtain coordinates of the critical points for a wide range of parameter $a$, $0 \leq a \leq 5.0$. We find the interval where a triple point exist, $\frac{1}{2}\ln 2 < a < 0.5$, and calculate the coordinates of the triple points. Then, we identify the tricritical point, where the densities of three phases -- phase I, phase II, and phase III -- become the same. For any value of $a$ such that $a< \frac{1}{2}\ln 2$, there is one critical point, while at $a > \frac{1}{2}\ln 2$, there are two critical points of the same temperature, but different densities.
+	We build the phase diagram in the $T^* - \rho^* - a$ space, where we show the lines of critical points, as well as the line of triple points. All lines meet at the tricritical point. The coexistence curves are presented in the $T^*-\rho^*$ plane for a few representative values of $a$, such that we cover regions with one critical point, the region with two critical points, and the case where a triple point exists.
+	
+	The phase behaviour of the cell model for the system of indistinguishable particles is qualitatively the same as in the case of distinguishable ones. Quantitatively, however, the case of indistinguishable particles precisely reproduces the results of the Blume-Capel model at some limiting cases, where the results for the system of distinguishable particles differs. First, at $a=0$, the critical temperature $T^*_c=\frac{2}{3}$ is obtained, in contrast to $T^*_c=0.586$ in the case of distinguishable particles. Second, the coordinates of the tricritical point $(T^*_{\rm tc} = \frac{1}{3}; a_{\rm tc} = \frac{2}{3}\ln 2)$ are the same as in the Blume-Capel model on a complete graph. This result leads to a conclusion that the double-occupancy cell model is better suited as the isomorphic one to the Blume-Capel model in the case of indistinguishable particles.
+	
+	The double-occupancy cell model is a useful model in statistical mechanics for studying the systems of particles interacting via bounded potentials; in soft matter physics, where the effective interactions are often bounded; and in the theory of lattice gases, where multiple occupancy has been paid much less attention than single-occupancy.
+	
+	%\pagebreak
+	\appendix
+	
+	\section{Pair distribution function}\label{sec:pair}
+	In this Appendix, we present the results for the pair distribution function $g^{(2)}$ of the double-occupancy cell model. The details of calculations can be found in~\cite{RDKPS25arxiv3}, where this quantity was obtained for the multiple-occupancy cell model. The final expression for $g^{(2)}$ as an explicit function of $T^*$ and an implicit function of $\mu^*$ is 
+	\begin{equation}
+		\label{eq:g2_in_z}
+		g^{(2)} = \frac{\left[{K}_2(T^*; \bar{z}_{\rm max}) - {K}_1(T^*; \bar{z}_{\rm max})\right] {K}_0(T^*; \bar{z}_{\rm max})}{{K}_1(T^*; \bar{z}_{\rm max})^2}.
+	\end{equation}
+	
+	The spatial dependency of the pair distribution function is expressed as
+	\begin{equation}
+		\label{g2_r}
+		g^{(2)}({\vb r}_1, {\vb r}_2) =  \left\{
+		\begin{array}{ll}
+			1, & \text{if } \nexists \Delta_l ({\vb r}_1, {\vb r}_2 \in \Delta_l),
+			\\
+			\frac{\langle n(n-1) \rangle_{Q}}{\langle n \rangle_{Q}^2}, & \text{if } \exists \Delta_l ({\vb r}_1, {\vb r}_2 \in \Delta_l),
+		\end{array}
+		\right.
+	\end{equation}
+	where
+	\begin{equation}
+		\langle n \rangle_{Q} = \rho^*,
+	\end{equation}
+	\begin{equation}
+		\langle n(n-1) \rangle_{Q} = \sum_{n=0}^{2} n(n-1) Q_{T^*, \mu^*}(n) = 2 Q_{T^*, \mu^*}(2),
+	\end{equation}
+	and the probability measure $Q_{T^*,\mu^*}(n)$~\cite{KKD20} is given by:	
+	\begin{equation*}
+		Q_{T^*,\mu^*}(n) = \frac{\left(T^{*3/2}\right)^n}{K_0(T^*; \bar{z}_{\rm max}) n!} \exp\left(\bar{z}_{\rm max}n - \frac{a}{T^*}n^2 \right),
+		\quad n \in \{0,1,2\},
+	\end{equation*}
+	in the case of distinguishable particles, and by
+	\begin{equation*}
+		Q_{T^*,\mu^*}(n) = \frac{\left(T^{*3/2}\right)^n}{K_0(T^*; \bar{z}_{\rm max})} \exp\left(\bar{z}_{\rm max}n - \frac{a}{T^*}n^2 \right),
+		\quad n \in \{0,1,2\},
+	\end{equation*}
+	in the case of indistinguishable particles.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/g2_vs_r}
+		\caption{\label{fig:g2_r} Pair distribution function $g^{(2)}({\vb r}_1, {\vb r}_2)$ as a function of separation $r = \abs{{\vb r}_1 - {\vb r}_2}$. The quantity $r^*$ denotes distance from the point with coordinate ${\vb r}_1$ to the boundary of the cubic cell containing ${\vb r}_1$, in the direction of ${\vb r}_2$. The results are presented for the system of distinguishable particles, at $a=1.0$. Phase I: $T^* = 0.25$, $\rho^*=0.1$; Phase II: $T^* = 0.2$, $\rho^* = 0.5$; Phase III: $T^*_c = 0.25$, $\rho^* = 1.9$; Supercritical: $T^* = 0.5$, $\rho^* = 0.5$. At $r > r^*$, $g^{(2)} = 1$.}
+	\end{figure}
+	
+	In Fig.~\ref{fig:g2_r}, the spatial dependency of $g^{(2)} (\vb{r}_1, \vb{r}_2)$, Eq.~\eqref{g2_r}, is illustrated for the system of distinguishable particles at $a=1.0$. As is seen from the plot, $g^{(2)}$ at any selected $T^*$ and $\rho^*$ is presented as a step function. While $\vb{r}_1$ and $\vb{r}_2$ are located within one cell, $g^{(2)}$ takes on a value that is dependent on temperature and density. However, as soon as the coordinates of two particles belong to different cells, the pair distribution function becomes unity. At high densities, this is known as high-density mean field fluid, the behavior which is also observed in systems with soft interactions~\cite{LBH00}.
+	
+	To present the results in Fig.~\ref{fig:g2_r}, we have fixed $a=1.0$ and selected the following representative states. For phase I, $T^*=0.25$ and $\rho^*=0.1$; for phase II, $T^*=0.2$ and $\rho^*=1.0$; for phase III, $T^*=0.25$ and $\rho^*=1.9$; and for supercritical state, $T^*=0.5$ and $\rho^*=0.5$. As expected, the pair distribution function at a given temperature increases with density.
+	
+
+	
+	
+	
+	%%===========================================================================================%%
+	%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+	%% system, please include the references within the manuscript file itself. You may do this  %%
+	%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+	%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+	%%===========================================================================================%%
+	
+	%\pagebreak
+	
+	\bibliography{articles,books,online_urls}
+	%\bibliography{sn-bibliography}% common bib file
+	%% if required, the content of .bbl file can be included here once bbl is generated
+	%%\input sn-article.bbl
+	
+\end{document}
+
+\begin{eqnarray*}
+	&& Q_{T^*,\mu^*}(n) = \frac{\left(T^{*3/2}\right)^n}{K_0(T^*; \bar{z}_{\rm max}) n!} \times
+	\nonumber\\
+	&& \times \exp\left(\bar{z}_{\rm max}n - \frac{a}{2T^*}n^2 \right),
+	\quad n \in \{0,1,2\},
+\end{eqnarray*}
+
+\section{Drafts and ideas}
+The reconsideration of the Blume-Capel model from the lattice gas / cell fluid perspective is valuable in itself. It gives an opportunity to look at the familiar model from a different perspective.
+
+Regarding the isomorphism between the cell fluid model and the Blume-Capel spin model, we conclude that the system of indistinguishable particles must be considered.
+
+The case of indistinguishable particles is isomorphic to the Blume-Capel model much better.
+
+
+The line of triple points can be also interpreted as the line of first order phase transition between phase I and phase III.
+
+The critical temperature becomes slower as the on-site interaction becomes stronger.
+
+\section{Refs.}
+Consider Refs. \cite{PCMR19}, \cite{VT25}, \cite{BB04}, \cite{SBFMS04}, \cite{Franzese07}, \cite{VF10}
+
+
+Attempts to map Blume-Capel to lattice gas were made in~\cite{LS75}, ~\cite{BB01}, ~\cite{LDZ21} but it was mapped to multi-component lattice gas, rather than to multiple-occupancy.
+
+In \cite{dOT19}, two critical points are observed in phospholipid monolayers.
+
