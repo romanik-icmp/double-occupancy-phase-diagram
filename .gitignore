@@ -2,6 +2,9 @@
 double-occupancy-lattice-gas*.pdf
 showkeysKay.sty
 
+articles.bib
+books.bib
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
