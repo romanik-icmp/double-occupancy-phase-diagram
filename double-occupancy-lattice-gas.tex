@@ -233,13 +233,14 @@
 		& = & \sum_{n_1 = 0}^2 \cdots \sum_{n_{\mathscr{N}} = 0}^2 \exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] \prod_l \pi(T^*,\mu^*;n_l),
 	\end{eqnarray}
 	where $v^* = v/\Lambda_J^3$, $\Lambda_J = (2\pi \hbar^2/mJ)^{1/2}$, and
-	\begin{equation}
+	\begin{equation}\label{eq:Xi1X}
 		\pi(T^*,\mu^*; n_l) = \frac{\left(v^* T^{*3/2}\right)^{n_l}}{n_l!} \exp\left(\frac{\mu^* + 2a -1}{T^*}n_l - \frac{a}{T^*} n_l^2\right).
 	\end{equation}
-	The last two equations are the same as obtained in~\cite[see Eq.~(2.11)]{KKD20} for the infinite-occupancy cell model, with three differences. First, the summation by the occupancy numbers is now restricted by the maximum occupancy number $n_{\rm max}=2$. Second, the chemical potential is shifted by value $2a-1$. Third, the coefficient at $n_l^2$ is now $a/T^*$, but was $a/(2T^*)$. Nevertheless, the methodology developed in~\cite{KKD20,KD22,RDKPS26a} can be applied here as well. 
-	Therefore, we transformed the Blume-Capel model on a complete graph to a double-occupancy cell fluid model with the Curie-Weiss interaction. This illustrates that there exist an isomorphism between the two models. 
+	Equations \eqref{eq:Xi1} and \eqref{eq:Xi1X} are of the same functional form as in~\cite[(2.11)]{KKD20} for the unrestricted occupancy cell model, with three differences: now, the summation over occupancy numbers is restricted by the maximum occupancy number $n_{\rm max}=2$; the chemical potential is shifted by value $2a-1$; the coefficient at $n_l^2$ is $a/T^*$ instead of $a/(2T^*)$ in~\cite[(2.11)]{KKD20}. This allows the application of the methodology developed in~\cite{KKD20,KD22,RDKPS26a} to the present case.
 	
-	There exists one more crucial difference between the infinite-occupancy and double-occupancy models for the considered case of long-ranged, Curie-Weiss-type interaction. The condition of stability $a > 1$~\cite{KKD20} is not required anymore, since the thermodynamic catastrophe~\cite{FR66,HR07,FL20} is easily avoided by a finite maximum occupancy number $n_{\rm max}=2$. This allows us to consider a system in a wider range of parameter $a$. In fact, there are not any restrictions on $a$ in the double-occupancy model, and it cat take on any real values. In this paper, we will consider only non-negative values $a \geq 0$.
+	Our transformation of the Blume-Capel model on a complete graph to a double-occupancy cell fluid model with the Curie-Weiss interaction establishes an equivalence in mathematical description of these two models.
+	
+	There exists one more crucial difference between the unrestricted occupancy and double-occupancy models for the considered case of long-ranged, Curie-Weiss-type interaction. The condition of stability $a > 1$~\cite{KKD20} is not required anymore, since the thermodynamic catastrophe~\cite{FR66,HR07,FL20} is easily avoided by a finite maximum occupancy number $n_{\rm max}=2$. This allows us to consider a system in a wider range of parameter $a$. In fact, there are not any restrictions on $a$ in the double-occupancy model, and it cat take on any real values. In this paper, we will consider only non-negative values $a \geq 0$.
 	
 	Let us now explicitly apply the Gaussian integral
 	\begin{equation}
