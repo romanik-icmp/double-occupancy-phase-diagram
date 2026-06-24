@@ -197,7 +197,7 @@
 		\sum_{l\neq m} n_l n_m = \sum_{l,m} n_l n_m - \sum_l n_l^2 = \left(\sum_l n_l\right)^2 - \sum_l n_l^2,
 	\end{equation}
 	we arrive at 
-	\begin{equation}
+	\begin{equation}\label{NELA}
 		\mathscr{H} = -\frac{J}{2\mathscr{N}} \left(\sum_l n_l\right)^2  + \left(\Delta + \frac{J}{2\mathscr{N}}\right) \sum_l n_l^2 + \left(J -2\Delta - \frac{J}{\mathscr{N}}\right) \sum_l n_l.
 	\end{equation}
 	Introducing the notation
@@ -206,9 +206,9 @@
 	\end{equation}
 	we can write the expression for the Boltzmann factor as
 	\begin{equation}
-		{\rm e}^{-\beta \mathscr{H}} = \exp \left[\frac{1}{2T^* \mathscr{N}} \left(\sum_l n_l\right)^2 + \frac{2a-1}{T^*} \sum_l n_l - \frac{a}{T^*} \sum_l n_l^2\right].
+		{\rm e}^{-\beta \mathscr{H}} = \exp \left[\frac{1}{2T^* \mathscr{N}} \left(\sum_l n_l\right)^2 + \frac{2a-1}{T^*} \sum_l n_l - \frac{a}{T^*} \sum_l n_l^2\right],
 	\end{equation}
-	Here, terms of order $J/(2\mathscr{N})$ relative to $\Delta$, and $J/\mathscr{N}$ relative to $(J-2\Delta)$, have been neglected.
+	where, in the thermodynamic limit $\mathscr{N}\to\infty$, we neglected contributions of order $\mathscr{N}^{-1}$ appearing in the last two terms of \eqref{NELA}.
 	
 	The grand partition function is now defined as
 	\begin{eqnarray}
@@ -381,7 +381,8 @@
 	\begin{figure}
 		\centering
 		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram3.pdf}
-		\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram4.png}
+		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram4.png}
+		\includegraphics[width=0.5\textwidth]{img/fig1.pdf}
 		\caption{Phase diagram of the double-occupancy cell model of a fluid with Curie-Weiss interaction for the system of distinguishable particles. Blue line: the line of critical points at $a \leq a_{\rm tc}$. Red lines: the lines of critical points at $a > a_{\rm tc}$. Black line: the line of triple points, which exists in the interval $a_{\rm tp} < a < 0.5$. All the line meet at the tricritical point.}
 		\label{fig:T-rho-a-3d}
 	\end{figure}
@@ -446,7 +447,8 @@
 	\begin{figure}
 		\centering
 		%\includegraphics[width=0.6\textwidth]{img/full3d_2_edited_1.pdf}
-		\includegraphics[width=0.6\textwidth]{img/3Dcombo-3.png}
+		%\includegraphics[width=0.6\textwidth]{img/3Dcombo-3.png}
+		\includegraphics[width=0.5\textwidth]{img/fig3.pdf}
 		\caption{The phase diagram in the $(T^*,\rho^*,a)$-space for the case of distinguishable particles. This figure combines results of Figs.~\ref{fig:T-rho-a-3d} and~\ref{fig:phase_diagrams} in one view. Green dashed lines: the coexistence curves at several values of parameter $a$: $a=0.3$, $a=0.375$, $a=0.45$, and $a=0.6$. Blue and Red lines are the locus of critical points. Black line is the line of triple points.}
 		\label{fig:combined}
 	\end{figure}
