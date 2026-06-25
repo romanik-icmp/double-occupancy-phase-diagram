@@ -190,7 +190,7 @@
 	
 	In what follows, the standard notation for thermodynamic quantities is adopted: $T$ the absolute temperature; $\beta = (k_{\mathrm B} T)^{-1}$ the inverse temperature; $k_{\mathrm B}$ the Boltzmann constant; $P$ the pressure; $\mu$ the chemical potential; $N$ the number of particles; $\rho = N/V$ the particle number density; $m$ the particle mass; $\hbar$ the Planck constant. The natural units for physical quantities are as follows: $\sigma$ for the length, $v$ for the volume, $J$ for the energy.
 	
-	As is also standard in the thermodynamics and statistical mechanics, we adopt the dimensionless, or reduced, quantities such as: the reduced temperature $T^* = k_{\mathrm B}T/J$; the reduced inverse temperature $\beta^* = \beta J$; the reduced pressure $P^* = Pv/J$; the reduced chemical potential $\mu^* = \mu/J$; the reduced particle number density $\rho^* = \rho \sigma^3$. It is worth noting that the definition of $\rho = N/V$, as well as other quantities expressed via $N$, is applicable for ensembles with a fixed number of particles, e.g. for the canonical ensemble. In the case of ensembles with a variable (fluctuating) particle number, e.g. the grand canonical ensemble, this definition would read $\rho = \langle N \rangle / V$, where $\langle N \rangle$ is the average number of particles, and $\langle \ldots \rangle$ means the average over the corresponding ensemble. We will not introduce different notations for these two cases, as the meaning is clearly obvious depending on the considered ensemble.
+	As is also standard in the thermodynamics and statistical mechanics, we use the dimensionless, or reduced, quantities such as: the reduced temperature $T^* = k_{\mathrm B}T/J$; the reduced inverse temperature $\beta^* = \beta J$; the reduced pressure $P^* = Pv/J$; the reduced chemical potential $\mu^* = \mu/J$; the reduced particle number density $\rho^* = \rho \sigma^3$. It is worth noting that the definition of $\rho = N/V$, as well as other quantities expressed via $N$, is applicable for ensembles with a fixed number of particles, e.g. for the canonical ensemble. In the case of ensembles with a variable (fluctuating) particle number, e.g. the grand canonical ensemble, this definition would read $\rho = \langle N \rangle / V$, where $\langle N \rangle$ is the average number of particles, and $\langle \ldots \rangle$ means the average over the corresponding ensemble. We will not introduce different notations for these two cases, as the meaning is clearly obvious depending on the considered ensemble.
 	
 	Adding and substracting the self-interaction term in the Hamiltonian~\eqref{eq:hamiltonian} via
 	\begin{equation}
@@ -205,7 +205,7 @@
 		a = \frac{\Delta}{J},
 	\end{equation}
 	we can write the expression for the Boltzmann factor as
-	\begin{equation}
+	\begin{equation}\label{BOF}
 		{\rm e}^{-\beta \mathscr{H}} = \exp \left[\frac{1}{2T^* \mathscr{N}} \left(\sum_l n_l\right)^2 + \frac{2a-1}{T^*} \sum_l n_l - \frac{a}{T^*} \sum_l n_l^2\right],
 	\end{equation}
 	where, in the thermodynamic limit $\mathscr{N}\to\infty$, we neglected contributions of order $\mathscr{N}^{-1}$ appearing in the last two terms of \eqref{NELA}.
@@ -213,59 +213,68 @@
 	The grand partition function is now defined as
 	\begin{eqnarray}
 		\label{eq:Xi_pi}
-		\Xi & = & \sum_{n_1 = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_1} \frac{{\rm e}^{\beta\mu n_1}}{n_1!} \ldots \sum_{n_{\mathscr{N}} = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_{\mathscr{N}}} \frac{{\rm e}^{\beta\mu n_{\mathscr{N}}}}{n_{\mathscr{N}}!} {\rm e}^{-\beta\mathscr{H}} .
+		\Xi & = & \sum_{n_1 = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_1} \frac{{\rm e}^{\beta\mu n_1}}{n_1!} \ldots \sum_{n_{\mathscr{N}} = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_{\mathscr{N}}} \frac{{\rm e}^{\beta\mu n_{\mathscr{N}}}}{n_{\mathscr{N}}!} {\rm e}^{-\beta\mathscr{H}} ,
 	\end{eqnarray}
-	Usually, when lattice gas models are considered, the terms of type $(v/\Lambda)^{n_l}$ are not included into the partition function, and only configuration partition functions are studied~\cite{FriedliVelenik17}. We, however, consider a cell model as a coarse-grained model for a continuum system. Therefore, $\Lambda^3$ appears due to the integration over momenta, and $v$ due to transition from the integration over space variables to the summation over lattice cells
+	which includes the Boltzmann factor from \eqref{BOF} and additional multipliers containing $\Lambda$, the de~Broglie thermal wavelength
+	\begin{equation}\label{Lam}
+		\Lambda=\hbar\,\sqrt{\frac{2\pi\beta}m}
+	\end{equation}
+	with $\hbar$ being the reduced Planck constant and $m$ the particle mass.
+	
+	Usually, when lattice gas models are considered, the factors $(v/\Lambda)^{n_l}$ are not included, and only configuration partition functions are studied~\cite{FriedliVelenik17}. We retain these factors to maintain the proper thermodynamic connection to the underlying continuum system. Specifically, in \eqref{eq:Xi_pi}, the de~Broglie thermal wavelength $\Lambda$ appears due to the integration over momenta. Since we consider our cell model as a coarse-grained (discretized) version of a continuum system, the cell volume $v$ arises due to transition from the integration over space variables to the summation over lattice cells via
 	\begin{equation}
-		\int_V {\rm d} {\vb{r}} \to v \sum_{l=1}^{\mathscr{N}} \qquad.
+		\int_V {\rm d} {\vb{r}}f(\vb{r}) \to v \sum_{l=1}^{\mathscr{N}}f_l \,.
 	\end{equation}
 	The issue of appearance of the factor $\frac{1}{\prod_l n_l!}$ in the definition of $\Xi$ was discussed in~\cite{FL18}. It was argued that its inclusion corresponds to the case of distinguishable particles, while its absence corresponds to the system of indistinguishable particles. The grand partition function for indistinguishable particles is therefore expressed as
 	\begin{eqnarray}
 		\label{Xi:indist}
 		\Xi & = & \sum_{n_1 = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_1} {\rm e}^{\beta\mu n_1} \ldots \sum_{n_{\mathscr{N}} = 0}^2 \left(\frac{v}{\Lambda^3}\right)^{n_{\mathscr{N}}} {\rm e}^{\beta\mu n_{\mathscr{N}}} {\rm e}^{-\beta\mathscr{H}}.
 	\end{eqnarray}
-	The comparison of the results for these two cases is of great interest. For example, in Refs.~\cite{FL18, FL20} the both cases were studied in parallel. In the current paper, we consider the case of the system of distinguishable particles in more detail, since it was the system we implied in our previous works. However, in Section~\ref{sec:indist} we present the result for the system of indistinguishable particles as well. As will be seen there, the latter case may be of more importance in the context of isomorphism of the double-occupancy cell model to the Blume-Capel model.
+	The comparison of the results for these two cases is of great interest. For example, in Refs.~\cite{FL18, FL20} both cases were studied in parallel. In the current paper, we consider the case of the system of distinguishable particles in more detail, since it was the system we employed in our previous works. However, in Section~\ref{sec:indist} we present the result for the system of indistinguishable particles as well. As will be seen there, the latter case can be more important regarding the isomorphism of the double-occupancy cell model to the Blume-Capel model.
 	
 	\section{Distinguishable particles}\label{sec:distinct}
 	
-	In this Section, we primarily focus on the case of distinguishable particles.
-	The explicit expression for the grand partition function defined in~\eqref{eq:Xi_pi} becomes
+	In this Section, we focus on the case of distinguishable particles.
+	Using the explicit expression for the Boltzmann factor \eqref{BOF} in the grand partition function~\eqref{eq:Xi_pi} we obtain
 	\begin{eqnarray}
 		\label{eq:Xi1}
 		\Xi & = & \sum_{n_1 = 0}^2 \cdots \sum_{n_{\mathscr{N}} = 0}^2 \exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] \frac{\left(v^* T^{*3/2}\right)^{\sum_l n_l}}{n_1! \ldots n_{\mathscr{N}}!} \exp\left[\frac{\mu^* + 2a - 1}{T^*}\sum_l n_l - \frac{a}{T^*}\sum_l n_l^2\right]
 		\nonumber\\
 		& = & \sum_{n_1 = 0}^2 \cdots \sum_{n_{\mathscr{N}} = 0}^2 \exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] \prod_l \pi(T^*,\mu^*;n_l),
 	\end{eqnarray}
-	where $v^* = v/\Lambda_J^3$, $\Lambda_J = (2\pi \hbar^2/mJ)^{1/2}$, and
+	where
 	\begin{equation}\label{eq:Xi1X}
 		\pi(T^*,\mu^*; n_l) = \frac{\left(v^* T^{*3/2}\right)^{n_l}}{n_l!} \exp\left(\frac{\mu^* + 2a -1}{T^*}n_l - \frac{a}{T^*} n_l^2\right).
 	\end{equation}
+	In \eqref{eq:Xi1} and \eqref{eq:Xi1X}, we introduced the dimensionless cell volume $v^*$ via $v^* = v/\Lambda_J^3$, where $\Lambda_J\equiv(2\pi \hbar^2/mJ)^{1/2}$ stems from the definition of the de~Broglie thermal wavelength in \eqref{Lam}.
 	Equations \eqref{eq:Xi1} and \eqref{eq:Xi1X} are of the same functional form as in~\cite[(2.11)]{KKD20} for the unrestricted occupancy cell model, with three differences: now, the summation over occupancy numbers is restricted by the maximum occupancy number $n_{\rm max}=2$; the chemical potential is shifted by value $2a-1$; the coefficient at $n_l^2$ is $a/T^*$ instead of $a/(2T^*)$ in~\cite[(2.11)]{KKD20}. This allows the application of the methodology developed in~\cite{KKD20,KD22,RDKPS26a} to the present case.
 	
 	Our transformation of the Blume-Capel model on a complete graph to a double-occupancy cell fluid model with the Curie-Weiss interaction establishes an equivalence in mathematical description of these two models.
 	
 	There exists one more crucial difference between the unrestricted- and double-occupancy models with Curie-Weiss-type interaction. The stability condition $a > 1$~\cite{KKD20} is not required anymore, since the system's collapse~\cite{FR66,HR07,FL20} is easily avoided by a finite maximum occupancy number $n_{\rm max}=2$. This allows us to consider the system in a wider range of parameter $a$. In fact, there are no restrictions on $a$ in the double-occupancy model, and it can take on any real value. In this paper, we will consider only non-negative values $a \geq 0$.
 	
-	Let us now explicitly apply the Gaussian integral
+	Let us proceed with the grand partition function $\Xi$ from \eqref{eq:Xi1}.
+	In order to evaluate the repeated sums over $n_1,\ldots,n_{\mathscr{N}}$ explicitly, we have to linearize the sum $\sum_l n_l$ in the exponential. This is achieved by representing the relevant factor through the Gaussian integral, viz.
 	\begin{equation}
-		\exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] = \sqrt{\frac{\mathscr{N}T^*}{2\pi}} \int_{-\infty}^{\infty} \exp\left(-\frac{\mathscr{N}}{2}T^* y^2 + y \sum_l n_l\right) {\rm d} y,
+		\exp\left[\frac{1}{2T^*\mathscr{N}} \left(\sum_l n_l\right)^2\right] = \sqrt{\frac{\mathscr{N}T^*}{2\pi}} \int_{-\infty}^{\infty} \exp\left(-\frac{\mathscr{N}}{2}T^* y^2 + y \sum_l n_l\right) {\rm d} y.
 	\end{equation}
-	to Eq.~\eqref{eq:Xi1} and introduce the ``effective'' (or ``shifted'') chemical potential $\mu_{\rm eff}^*$ as
+	To simplify notation, we introduce the effective (shifted) chemical potential $\mu_{\rm eff}^*$ via
 	\begin{equation}
-		\mu_{\rm eff}^* = \mu^* + 2a -1,
+		\mu_{\rm eff}^* = \mu^* + 2a -1.
 	\end{equation}
-	to arrive at the following form
+	As a result, we obtain the grand partition function $\Xi$ in the form
 	\begin{equation}
-		\Xi(T^*,\mu_{\rm eff}^*) = \sqrt{\frac{\mathscr{N} T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp\left[\mathscr{N} \tilde{E}(T^*,\mu_{\rm eff}^*; y)\right] {\rm d} y,
+		\Xi(T^*,\mu_{\rm eff}^*) = \sqrt{\frac{\mathscr{N} T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp\left[\mathscr{N} \tilde{E}(T^*,\mu_{\rm eff}^*; y)\right] {\rm d} y
 	\end{equation}
-	where
+	with
 	\begin{equation}
-		\tilde{E}(T^*,\mu_{\rm eff}^*; y) = -\frac{1}{2}T^* y^2 + \ln \tilde{K}_0(T^*,\mu_{\rm eff}^*;y),
+		\tilde{E}(T^*,\mu_{\rm eff}^*; y) = -\frac{1}{2}T^* y^2 + \ln \tilde{K}_0(T^*,\mu_{\rm eff}^*;y)\, .
 	\end{equation}
-	with special functions $\tilde{K}_0(T^*,\mu_{\rm eff}^*;y)$ defined as
+	Due to summations over $n_1,\ldots,n_{\mathscr{N}}$ in \eqref{eq:Xi1}, the  special function $\tilde{K}_0(T^*,\mu_{\rm eff}^*;y)$ appears in $\tilde{E}(T^*,\mu_{\rm eff}^*; y)$, which is defined as
 	\begin{equation}
-		\tilde{K}_0(T^*,\mu_{\rm eff}^*; y) = \sum_{n=0}^{2} \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp \left[\left(y + \frac{\mu_{\rm eff}^*}{T^*}\right)n - \frac{a}{T^*}n^2\right].
+		\tilde{K}_0(T^*,\mu_{\rm eff}^*; y) = \sum_{n=0}^{2} \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp \left[\left(y + \frac{\mu_{\rm eff}^*}{T^*}\right)n - \frac{a}{T^*}n^2\right],
 	\end{equation}
+	and represents the partition sum of a single cell.
 	The change of variables
 	\begin{equation}
 		z = y + \frac{\mu^*_{\rm eff}}{T^*} + \ln v^*
@@ -382,7 +391,7 @@
 		\centering
 		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram3.pdf}
 		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram4.png}
-		\includegraphics[width=0.5\textwidth]{img/fig1.pdf}
+		\includegraphics[width=0.5\textwidth]{img/fig1_v2.pdf}
 		\caption{Phase diagram of the double-occupancy cell model of a fluid with Curie-Weiss interaction for the system of distinguishable particles. Blue line: the line of critical points at $a \leq a_{\rm tc}$. Red lines: the lines of critical points at $a > a_{\rm tc}$. Black line: the line of triple points, which exists in the interval $a_{\rm tp} < a < 0.5$. All the line meet at the tricritical point.}
 		\label{fig:T-rho-a-3d}
 	\end{figure}
