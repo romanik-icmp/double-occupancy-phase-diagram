@@ -264,6 +264,7 @@
 	\end{equation}
 	As a result, we obtain the grand partition function $\Xi$ in the form
 	\begin{equation}
+		\label{Y1}
 		\Xi(T^*,\mu_{\rm eff}^*) = \sqrt{\frac{\mathscr{N} T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp\left[\mathscr{N} \tilde{E}(T^*,\mu_{\rm eff}^*; y)\right] {\rm d} y
 	\end{equation}
 	with
@@ -272,52 +273,58 @@
 	\end{equation}
 	Due to summations over $n_1,\ldots,n_{\mathscr{N}}$ in \eqref{eq:Xi1}, the  special function $\tilde{K}_0(T^*,\mu_{\rm eff}^*;y)$ appears in $\tilde{E}(T^*,\mu_{\rm eff}^*; y)$, which is defined as
 	\begin{equation}
+		\label{Y3}
 		\tilde{K}_0(T^*,\mu_{\rm eff}^*; y) = \sum_{n=0}^{2} \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp \left[\left(y + \frac{\mu_{\rm eff}^*}{T^*}\right)n - \frac{a}{T^*}n^2\right],
 	\end{equation}
 	and represents the partition sum of a single cell.
-	The change of variables
+	
+	Following~\cite{KD22}, we shift the integration variable $y$ in \eqref{Y1}--\eqref{Y3} via
 	\begin{equation}
 		z = y + \frac{\mu^*_{\rm eff}}{T^*} + \ln v^*
 	\end{equation}
-	results into
+	thereby eliminating the dependencies on chemical potential and cell volume from the function $\tilde{K}_0$. Thus we arrive at the integral representation
 	\begin{equation}
 		\label{eq:Xi_z}
 		\Xi = \sqrt{\frac{\mathscr{N} T^*}{2\pi}} \int\limits_{-\infty}^{\infty} \exp \left[\mathscr{N} E(T^*, \mu^*_{\rm eff}; z)\right] {\rm d} z,
 	\end{equation}
-	where
+	with
 	\begin{equation}
 		\label{def:E}
 		E(T^*,\mu^*;z) = -\frac{1}{2}T^* \left(z - \frac{\mu^*_{\rm eff}}{T^*} - \ln v^*\right)^2 + \ln K_0(T^*;z),
 	\end{equation}
+	and
 	\begin{equation}
 		\label{def:K0}
 		K_0(T^*;z) = \sum_{n=0}^{2} \frac{\left(T^{*3/2}\right)^n}{n!} \exp\left(zn - \frac{a}{T^*}n^2\right).
 	\end{equation}
-	Next, we integrate Eq.~\eqref{eq:Xi_z} by the Laplace's method~\cite{BenderOrszag99} and find
-	\begin{equation}
+	To evaluate the integral in Eq.~\eqref{eq:Xi_z}, we apply Laplace's method (see e.g.~\cite{BenderOrszag99}). In the large-$\mathscr{N}$ limit, physically  corresponding to the thermodynamic limit, the integral is dominated by the global maximum of the exponent, yielding
+	\begin{equation}\label{Laplace}
 		\Xi \simeq \exp\left[\mathscr{N} E(T^*,\mu^*_{\rm eff}; \bar{z}_{\rm max})\right]
 	\end{equation}
-	where $\bar{z}_{\rm max} = \bar{z}_{\rm max}(T^*,\mu^*_{\rm eff})$ is the global maximum of $E(T^*,\mu^*_{\rm eff}; z)$. We do not provide details of calculating $\bar{z}_{\rm max}$ here. The procedure has been outlined in much details in a number of previous studies~\cite{KKD20,KD22,RDKPS26a}. Here, we just present the equation for determining $\bar{z}_{\rm max}$:
+	where $\bar{z}_{\rm max} = \bar{z}_{\rm max}(T^*,\mu^*_{\rm eff})$ is the coordinate of the global maximum of $E(T^*,\mu^*_{\rm eff}; z)$.
+	The location of this maximum is determined by the extremum condition (cf.~\cite{KKD20,KD22,RDKPS26a})
 	\begin{equation}
 		\label{eq:extremum}
 		T^* \bar{z} - \left(\mu^*_{\rm eff} + T^* \ln v^*\right) = \frac{K_1(T^*; \bar{z})}{K_0(T^*; \bar{z})},
 	\end{equation}
-	where we introduced the function $K_1(T^*; z)$, which is the first member of the hierarchy of functions $K_j(T^*; z)$, $j=1, 2, \ldots $, defined as
+	where $K_1(T^*; z)$ is the first member of the hierarchy of functions $K_j(T^*; z)$, $j=1, 2, \ldots $
 	\begin{equation}
 		\label{def:Kj}
 		K_j(T^*; z) = \sum_{n=0}^2 \frac{n^j \left(T^{*3/2}\right)^n}{n!} \exp\left(z n - \frac{a}{T^*}n^2\right).
 	\end{equation}
-	In Eq.~\eqref{eq:extremum}, we select only those solutions that lead to the global maximum of $E(T^*, \mu^*_{\rm eff}; z)$ and denote them by $\bar{z}_{\rm max}$. A useful consequences from Eq.~\eqref{eq:extremum} is
+	the $j$'th derivatives of $K_0(T^*;z)$ from \eqref{def:K0} with respect to $z$.
+	
+	Solving the equation~\eqref{eq:extremum}, we select only solutions corresponding to global maxima of $E(T^*, \mu^*_{\rm eff}; z)$ and denote them by $\bar{z}_{\rm max}$. A useful consequence from Eq.~\eqref{eq:extremum} is the relation
 	\begin{equation}
 		\label{eq:extremum_z}
 		\bar{z}_{\rm max} - \frac{\mu^*_{\rm eff}}{T^*} - \ln v^* = \frac{1}{T^*} \frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})}.
 	\end{equation}
-	We can substitute this equality back into the function $E$ and eliminate its explicit dependence on $\mu^*_{\rm eff}$:
-	\begin{equation}
+	Substituting this back into the function $E$ eliminates its explicit dependence on $\mu^*_{\rm eff}$, and we arrive at
+	\begin{equation}\label{Esimplified}
 		E(T^*; \bar{z}_{\rm max}) = -\frac{1}{2T^*} \left[\frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})}\right]^2 + \ln K_0(T^*;\bar{z}_{\rm max}).
 	\end{equation}
 	
-	By standard formulas of statistical mechanics, we obtain the pressure as a function of the temperature (explicitly) and the chemical potential (implicitly): 
+	By standard formulas of statistical mechanics, we obtain the pressure as a function of the temperature (explicitly) and the chemical potential (implicitly) via 
 	\begin{equation}
 		\label{eq:pressure}
 		P^* = T^* E(T^*; \bar{z}_{\rm max}).
@@ -327,14 +334,14 @@
 		\label{eq:rho}
 		\rho^* = \frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})}.
 	\end{equation}
-	At any given temperature $T^*$, Eqs.~\eqref{eq:pressure} and~\eqref{eq:rho} can be formally considered as a parametric equation of state with $\bar{z}_{\rm max}$ being the parameter. Therefore, we have obtained a parametric equation of state for the double-occupancy cell model with Curie-Weiss interaction.
+	At any given temperature $T^*$, equations~\eqref{eq:pressure} and~\eqref{eq:rho} constitute a parametric equation of state with the parameter $\bar{z}_{\rm max}$ for the double-occupancy cell model with Curie-Weiss interaction.
 	
 	\subsection{Critical point coordinates}
 	\label{sec:cp}
 	
 	\begin{table}[h]
 		\centering
-		\caption{Critical point coordinates of the double-occupancy cell model for the case of distinguishable particles. At the tricritical point, $a_{\rm tc} = \frac{1}{2} \ln 2$. For any value $a \leq a_{\rm tc}$, there is a single critical point; for any value $a > a_{\rm tc}$, there are two critical points.}
+		\caption{Critical point coordinates of the double-occupancy cell model for the case of distinguishable particles. At the tricritical point, $a_{\rm tc} = \frac{1}{2} \ln 2$. For any value $a \leq a_{\rm tc}$, there is a single critical point; for any value $a > a_{\rm tc}$, there are two critical points. The large-$a$ critical pressure $P^{*(1)}_c=\frac{1}{4}\left(\ln 2 - \frac{1}{2}\right)$ has been analytically obtained in \cite[Sec.~9.4]{DKPRS26arxiv}.}
 		\begin{tabular}{c|c|c|c|c|c}
 			\toprule
 			$a=\Delta/J$ & $T^*_c$ & $\rho^{*(1)}_c $ & $P^{*(1)}_c$ & $\rho^{*(2)}_c$ & $P^{*(2)}_c$\\
@@ -362,10 +369,10 @@
 	\end{table}
 	As was shown in~\cite{RDKPS26a}, the physical conditions for finding the critical point
 	\begin{equation}
-		\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} = 0, \quad {\text and } \quad 
+		\left(\frac{\partial P^*}{\partial \rho^*}\right)_{T^*} = 0 \quad {\text {and} } \quad 
 		\left(\frac{\partial^2 P^*}{\partial \rho^*}\right)_{T^*} = 0,
 	\end{equation}
-	in combination with the extrema condition for $E(T^*, \mu^*_{\rm eff}; z)$, result into the system of equations
+	in combination with the extremum condition~\eqref{eq:extremum} for $E(T^*, \mu^*_{\rm eff}; z)$, result into the system of equations
 	\begin{equation}
 		\label{eq:system}
 		\begin{cases}
@@ -378,31 +385,28 @@
 	\begin{equation}
 		E_j(T^*,\mu^*_{\rm eff}; z) \equiv \frac{\partial^j}{\partial z^j} E(T^*, \mu^*_{\rm eff}; z).
 	\end{equation}
-	Note that due to Eq.~\eqref{def:E}, the functions $E_j$ with $j \geq 2$ do not explicitly depend on $\mu^*_{\rm eff}$. Therefore, the last two equations determine the critical values for the temperature, $T^*_c$, and for $\bar{z}^{(c)}_{\rm max}$. Then, we find the critical value of the chemical potential $\mu^{*(c)}_{\rm eff}$ from the first condition $E_1 = 0$, which is equivalent to Eq.~\eqref{eq:extremum_z}:
+	Note that, since the function $E(T^*,\mu^*_{\rm eff};z)$ in~\eqref{def:E} contains at most the second power of $\mu^*_{\rm eff}$, its derivatives $E_j$ with $j \geq 2$ do not explicitly depend on $\mu^*_{\rm eff}$. Therefore, the last two equations in \eqref{eq:system} directly determine the critical values for the temperature, $T^*_c$, and for $\bar{z}^{(c)}_{\rm max}$. Then, we find the critical value of the chemical potential $\mu^{*(c)}_{\rm eff}$ from the first condition $E_1 = 0$, which is equivalent to Eq.~\eqref{eq:extremum_z}:
 	\begin{equation}
 		\mu^*_{\rm eff} = T^* \bar{z}_{\rm max} - \frac{K_1(T^*; \bar{z}_{\rm max})}{K_0(T^*; \bar{z}_{\rm max})} - T^* \ln v^*.
 	\end{equation}
-	Then, we find all the other quantities at the critical point, such as pressure via Eq.~\eqref{eq:pressure} or the particle number density via Eq.~\eqref{eq:rho}.
+	Subsequently, we determine all other quantities at the critical point, such as pressure via~\eqref{eq:pressure} or the particle number density via~\eqref{eq:rho}.
 	
+	It turns out that the number of solutions to the system of equations~\eqref{eq:system} depends on the ratio $a=\Delta/J$, and therefore the phase diagram also depends strongly on the value of this parameter. For large values of $a$, there are two critical points at the same critical temperature but different critical values of $\bar{z}_{\rm max}$, which in turn means two different critical densities by Eq.~\eqref{eq:rho}. For example, for $a=5.0$, the two critical points $(T^*_c; \rho^*_c)$ have coordinates $(0.25; 0.5)$ and $(0.25;1.5)$. These values of the critical point coordinates are limiting at large $a$, and can be written as $(1/4; 1/2)$ and $(1/4; 3/2)$, respectively. As the value of $a$ decreases, the critical temperature increases, the lower critical density increases above $0.5$, while the higher critical density decreases below $1.5$. For example, at $a=0.6$, the two critical points have the coordinates $(0.254567; 0.513894)$ and $(0.254567; 1.48611)$, correspondingly. More data are collected in Table~\ref{tab:critical-points}. We denote the quantities related to the lower-density critical point by a superscript ${}^{(1)}$, and to the higher-density one by ${}^{(2)}$. We observe that as $a$ decreases, the difference between $\rho^{*(1)}_c$ and $\rho^{*(2)}_c$ becomes smaller and smaller, until they eventually become the same at $a_{\rm tc}=\frac{1}{2}\ln 2 \approx 0.346574$, where the two lines of critical points merge into one at the point $(0.333333; 1.00000)$, or simply $(1/3;1)$. This case corresponds to a tricritical point. For $a < a_{\rm tc}$, only one critical point remains in the phase diagram, always with the critical density $\rho^*_c = 1.0$. As the parameter $a$ changes from $a_{\rm tc}$ down to 0, the critical temperature rises from $T^*_t = 0.333333$ to $T^*_c = 0.585786$. Figure~\ref{fig:T-rho-a-3d} illustrates this behavior based on the data from Table~\ref{tab:critical-points}.
 	
-	It turns out that the number of solutions to Eq.~\eqref{eq:system} depends on the ratio $a=\Delta/J$, and therefore the phase diagram is also strongly dependent on that. For large values of $a$, there are two critical points with the same critical temperature but different critical values for $\bar{z}$, which in turn means different critical densities, by Eq.~\eqref{eq:rho}. For example, for $a=5.0$, the two critical points $(T^*_c; \rho^*_c)$ are $(0.25; 0.5)$ and $(0.25;1.5)$. These limiting values for the critical point coordinates at large $a$ can also be expressed as $(1/4; 1/2)$ and $(1/4; 3/2)$, respectively. As the value of $a$ decreases, the critical temperature increases, the lower critical density increases above $0.5$, while the higher critical density decreases below $1.5$. For example, at $a=0.6$, the two critical points are $(0.254567; 0.513894)$ and $(0.254567; 1.48611)$, correspondingly. More data are collected in Table~\ref{tab:critical-points}. We denote the quantities related to the lower-density critical point by a superscript ${}^{(1)}$, and to the higher-density one by ${}^{(2)}$. We observe that as $a$ decreases, the difference between $\rho^{*(1)}_c$ and $\rho^{*(2)}_c$ becomes smaller and smaller, until they become the same at $a_{\rm tc}=\frac{1}{2}\ln 2 \approxeq 0.346574$, in which case the two lines of critical points merge into one at the point $(0.333333; 1.00000)$, or simply $(1/3;1)$. This is the tricritical point. For $a < a_{\rm tc}$, only one critical point remains in the system, always at $\rho^*_c = 1.0$. As the parameter $a$ changes from $a_{\rm tc}$ down to 0, the critical temperature changes from $T^*_t = 0.333333$ up to $T^*_c = 0.585786$. Figure~\ref{fig:T-rho-a-3d} illustrates this behavior based on the data from Table~\ref{tab:critical-points}.
-	
-	\begin{figure}
-		\centering
-		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram3.pdf}
-		%\includegraphics[width=0.6\textwidth]{img/T-rho-a-phase-diagram4.png}
-		\includegraphics[width=0.5\textwidth]{img/fig1_v2.pdf}
-		\caption{Phase diagram of the double-occupancy cell model of a fluid with Curie-Weiss interaction for the system of distinguishable particles. Blue line: the line of critical points at $a \leq a_{\rm tc}$. Red lines: the lines of critical points at $a > a_{\rm tc}$. Black line: the line of triple points, which exists in the interval $a_{\rm tp} < a < 0.5$. All the line meet at the tricritical point.}
-		\label{fig:T-rho-a-3d}
-	\end{figure}
-	
-	Note that in the region where two critical points exist, the sum of two critical densities always remains the same
+	Note that in the region where two critical points exist, the sum of two critical densities always remains the same:
 	\begin{equation}
 		\rho^{*(1)}_c + \rho^{*(2)}_c = 2.
 	\end{equation}
 	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{img/fig1_v2.pdf}
+		\caption{Phase diagram of the double-occupancy cell model of a fluid with Curie-Weiss interaction for the system of distinguishable particles. Blue line: the line of critical points at $a \leq a_{\rm tc}$. Red lines: the lines of critical points at $a > a_{\rm tc}$. Black line: the line of triple points, which exists in the interval $a_{\rm tp} < a < 0.5$. All the lines meet at the tricritical point.}
+		\label{fig:T-rho-a-3d}
+	\end{figure}
+	
 	\subsection{Coexistence curves}\label{sec:coex}
-	Having found critical point coordinates for different values of $a$, we are now proceeding with building the coexistence curves. Based on the analysis of Section~\ref{sec:cp}, we present phase diagrams for the double-occupancy cell model with the Curie-Weiss interaction for a set of selected increasing values of $a$, namely $a=0.3,$ $0.375,$ $0.45,$ and $0.6$, see Fig.~\ref{fig:phase_diagrams}.
+	Having found critical point coordinates for different values of $a$ in Section~\ref{sec:cp}, we now construct the coexistence curves. The $T^* - \rho^*$ phase diagrams are shown in Fig.~\ref{fig:phase_diagrams}, for $a=0.3,$ $0.375,$ $0.45,$ and $0.6$.
 	
 	\begin{figure}
 		\centering
@@ -438,18 +442,19 @@
 			\label{fig:pd4}
 		\end{subfigure}
 		
-		\caption{The $T^* - \rho^*$ phase diagrams of the double-occupancy lattice gas for the case of distinguishable particles at different values of $a=\Delta/J$. Solid lines are the coexistence curves. {\bf (a)}: The coexistence curve between phases I and III ends at the critical point. {\bf (b)} and {\bf (c)}: The coexistence curves between phases I and II, as well as between II and III are present in the temperature interval $T^*_{\rm tr} \leq T^* \leq T^*_c$, each ending at its own critical point. For $T^* \leq T^*_{\rm tr}$, phases I and III coexist. $T^*_{\rm tr}$ is the temperature of the triple point. {\bf (d)}: The coexistence curves between phases I and II, as well as between II and III are present for $0 \leq T^* \leq T^*_c$, each ending at its own critical point.}
+		\caption{The $T^* - \rho^*$ phase diagrams of the double-occupancy cell model in the case of distinguishable particles at different values of $a=\Delta/J$. Solid curves are the coexistence lines. {\bf (a)}: The coexistence line between phases I and III ends at the critical point. {\bf (b)} and {\bf (c)}: Coexistence lines between phases I --- II and II --- III are present in the temperature interval $T^*_{\rm tr} \leq T^* \leq T^*_c$, each ending at its own critical point. For $T^* \leq T^*_{\rm tr}$, phases I and III coexist. $T^*_{\rm tr}$ is the temperature of the triple point. {\bf (d)}: Coexistence lines between phases I --- II and II --- III are present for $0 \leq T^* \leq T^*_c$, each ending at its own critical point.}
 		\label{fig:phase_diagrams}
 		
 	\end{figure}
 	
-	When the ratio of repulsion to attraction couplings is small enough, the coexistence line of the double occupancy cell model resembles that of a single-occupancy lattice gas. In particular, there is one critical point, and for temperatures below the critical value, a symmetric coexistence curve between two phases exists. The two phases are characterized by low and high densities. Figure~\ref{fig:pd1} shows the phase diagram in the $T^* - \rho^*$ plane, which is a typical diagram for small values of $a$, specifically for $a \leq a_{\rm tc}$, where $a_{\rm tc} = \frac{1}{2}\ln 2$ in the case of distinguishable particles. At $a=0.3$, the coordinates of the critical point are $T^*_c = 0.401$, $\rho^*_c=1.0$, and $P^*_c=0.144$. 
+	At small $a$ (weak repulsion), the phase behavior of the double-occupancy cell model resembles that of a single-occupancy lattice gas: there is a single critical point, and at lower temperatures there is a symmetric curve of two-phase coexistence. Figure~\ref{fig:pd1} shows the $T^* - \rho^*$ phase diagram at $a=0.3$, typical for small values of $a$ in the range $a \leq a_{\rm tc}= \frac{1}{2}\,\ln 2$. At $a=0.3$, the coordinates of the critical point are $T^*_c = 0.401$, $\rho^*_c=1.0$, and $P^*_c=0.144$.
 	
-	As soon as $a$ becomes greater than $\frac{1}{2}\ln 2$, the line of critical points bifurcates, and two critical points appear. Figure~\ref{fig:pd2} illustrates the phase diagram at $a=0.375$. Two critical points are observed with the same critical temperature $T^*_c = 0.298$, but with different densities, $\rho^{*(1)}_c = 0.676$ and $\rho^{*(2)}_c=1.32$, and different pressures, $P^{*(1)}_c=0.073$ and $P^{*(1)}_c=0.086$. Now, between the low density phase (let us call it phase I) and the high density phase (let us call it phase III), a phase of intermediate density appears (let us call it phase II). But the phase II exists only for temperatures down to some temperature $T^*_{\rm tr}$. Below that temperature, the phase transition occurs directly between phase I and phase III. The point $(T^*_{\rm tr}, P^*_{\rm tr})$ is called \textit{the triple point}, since this is the point where three phases, namely phase I, phase II, and phase III, can coexist at the same pressure and temperature, but at different values of densities.
+	Once $a$ exceeds $\frac{1}{2}\ln 2$, the coexistence line bifurcates, and two critical points appear. Figure~\ref{fig:pd2} illustrates the phase diagram at $a=0.375$, where two critical points exist at the same critical temperature $T^*_c = 0.298$, but with different densities, $\rho^{*(1)}_c = 0.676$ and $\rho^{*(2)}_c=1.32$, and different pressures: $P^{*(1)}_c=0.073$ and $P^{*(2)}_c=0.086$.
+	In this regime, an intermediate-density phase (phase II) emerges  between the low-density phase I and high-density phase III. However, the phase II exists only above some temperature $T^*_{\rm tr}$. Below it, the phase transition occurs directly between phases I and III. The point $(T^*_{\rm tr}, P^*_{\rm tr})$ is the \textit{triple point}. Here, all three phases coexist at the same pressure and temperature, but at three different densities.
 	
-	As the value of $a$ is increased even more, the phase diagram changes in such a way that the difference between the critical densities increases, the critical temperature slowly decreases, and the temperature of the triple-point temperature decreases quite notably. The phase diagram at $a=0.45$ is demonstrated in Fig.~\ref{fig:pd3}. 
+	As $a$ further rises, the critical temperature drops slowly, while the difference between the critical densities increases, and the triple-point temperature decreases quite notably. Figures~\ref{fig:pd2} ($a=0.375$) and~\ref{fig:pd3} ($a=0.45$) illustrate this progress in phase behavior.
 	
-	At some value of $a$, namely at $a \approx 0.5$, the triple point temperature becomes zero, and for greater $a$ the triple point does not exist anymore, as is seen in Fig.~\ref{fig:pd4} where the phase diagram is presented for $a=0.6$. For such high values of $a$, there are three phases at sufficiently low temperatures. At very low temperatures, e.g. $T^* < 0.05$, the phase densities are $\rho^*_{I} \approx 0$, $\rho^*_{II} \approx 1$, and $\rho^*_{III} \approx 2$, and remain nearly constant. This means that we observe pronounced phase transitions between three phases of integer-valued densities.
+	At $a \approx 0.5$, the triple-point temperature becomes zero, and no triple-point exists for greater $a$. This situation is illustrated in Fig.~\ref{fig:pd4} with $a=0.6$. At such high values of $a$, three distinct phases exist at all low temperatures. When temperatures are very low, e.g. $T^* < 0.05$, the phase densities remain nearly constant with $\rho^*_{I} \approx 0$, $\rho^*_{II} \approx 1$, and $\rho^*_{III} \approx 2$. This reveals pronounced phase transitions between three phases with integer-valued densities.
 	
 	Figure~\ref{fig:combined}  combines the results presented in Figs.~\ref{fig:T-rho-a-3d} and~\ref{fig:phase_diagrams}. The coexistence curves are presented in the three dimensional space along with the critical point lines and the triple-point line.
 	
